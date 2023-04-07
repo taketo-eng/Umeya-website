@@ -8,14 +8,10 @@
   height: 140px;
   @apply absolute left-0 top-0;
   z-index: 10;
-  &::after {
-    content: "";
-    @apply absolute;
-    border: solid rgba(194, 18, 68, 0.8);
-    border-width: 140px 140px 0 0;
-    border-bottom-right-radius: 100%;
-    backdrop-filter: blur(3px);
-  }
+  clip-path: circle(100% at 0 0);
+  background-color: rgba(194, 18, 68, 0.8);
+  backdrop-filter: blur(3px);
+
   h1 {
     @apply absolute w-20 left-1/2 top-1/2;
     z-index: 1;
@@ -30,10 +26,6 @@
     width: 100px;
     height: 100px;
 
-    &::after {
-      border-width: 100px 100px 0 0;
-    }
-
     h1 {
       @apply w-16;
       translate: calc(-50% - 10px) calc(-50% - 10px);
@@ -46,14 +38,9 @@
   height: 140px;
   z-index: 10;
   @apply absolute cursor-pointer right-0 top-0;
-  &::after {
-    content: "";
-    @apply absolute;
-    border: solid rgba(194, 18, 68, 0.8);
-    border-width: 140px 140px 0 0;
-    border-bottom-left-radius: 100%;
-    backdrop-filter: blur(3px);
-  }
+  clip-path: circle(100% at 100% 0);
+  backdrop-filter: blur(3px);
+  background-color: rgba(194, 18, 68, 0.8);
 
   div {
     @apply w-10 h-10 absolute left-1/2 top-1/2;
@@ -88,10 +75,6 @@
   @media screen and (max-width: 767px) {
     width: 100px;
     height: 100px;
-
-    &::after {
-      border-width: 100px 100px 0 0;
-    }
 
     div {
       translate: calc(-50% + 10px) calc(-50% - 10px);

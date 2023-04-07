@@ -8,7 +8,7 @@
 
 html {
   scroll-behavior: smooth;
-  // scroll-padding-top: 7rem;
+  scroll-padding-top: 70px;
 }
 
 body {
@@ -27,11 +27,86 @@ a {
 .keyvisual {
   position: relative;
   &::after {
-    position: absolute;
     content: "";
     display: block;
+    position: absolute;
     inset: 0;
     background-color: #000;
     opacity: 0.2;
+  }
+}
+
+.open_anim {
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    background-color: var(--main);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+    transition: clip-path 0.6s;
+  }
+  &.is-inview {
+    &::after {
+      clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    }
+  }
+}
+
+.fadein_anim {
+  position: relative;
+  opacity: 0;
+  translate: 0 40px;
+
+  transition: translate 0.6s, opacity 0.6s;
+
+  &.is-inview {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.title_anim {
+  & > span {
+    &:first-of-type {
+      span {
+        opacity: 0;
+        transition: opacity 0.4s;
+        @for $i from 1 through str-length(attr(data-titleEn)) {
+          &:nth-of-type(#{$i}) {
+            transition-delay: ($i - 1) * 0.1s;
+          }
+        }
+      }
+    }
+    &:last-of-type {
+      span {
+        opacity: 0;
+        transition: opacity 0.4s;
+        @for $i from 1 through str-length(attr(data-title)) {
+          &:nth-of-type(#{$i}) {
+            transition-delay: ($i - 1) * 0.1s;
+          }
+        }
+      }
+    }
+  }
+
+  &.is-inview {
+    & > span {
+      &:first-of-type {
+        span {
+          opacity: 1;
+        }
+      }
+      &:last-of-type {
+        span {
+          opacity: 1;
+        }
+      }
+    }
   }
 }

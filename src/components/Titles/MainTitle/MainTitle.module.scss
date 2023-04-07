@@ -1,0 +1,17 @@
+.title {
+  font-family: "rocknroll-one", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  @apply relative mb-7;
+
+  & > span {
+    &:first-of-type {
+      @apply text-4xl md:text-6xl font-noto font-bold uppercase text-text text-opacity-30;
+    }
+
+    &:last-of-type {
+      @apply text-lg md:text-xl text-main absolute left-0 bottom-0;
+      z-index: 1;
+    }
+  }
+}

@@ -24,7 +24,8 @@ export default function App({ Component, pageProps }: AppProps) {
   })(document);
         `}
       </Script>
-      <div id="top" className={`${noto.variable} font-sans overflow-hidden`}>
+
+      <div className={`${noto.variable} font-sans overflow-hidden`}>
         <Component {...pageProps} />
       </div>
     </>
