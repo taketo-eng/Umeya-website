@@ -1,4 +1,4 @@
-import { FC, ReactNode, useRef } from "react"
+import { FC, ReactNode, useEffect, useRef } from "react"
 import { Header } from "@/components/common/Header"
 import { Footer } from "@/components/common/Footer"
 import { LocomotiveScrollProvider } from "react-locomotive-scroll"
@@ -10,6 +10,12 @@ type Props = {
 
 export const Layout: FC<Props> = ({ children }) => {
   const ref = useRef(null)
+
+  useEffect(() => {
+    const wrapper = document.querySelector(".top_wrapper")
+    wrapper?.classList.remove("preload")
+  }, [])
+
   return (
     <>
       <Head>
@@ -22,7 +28,7 @@ export const Layout: FC<Props> = ({ children }) => {
         watch={[]}
         containerRef={ref}
       >
-        <div data-scroll-container id="top" ref={ref}>
+        <div className="preload top_wrapper" data-scroll-container id="top" ref={ref}>
           <Header />
           <main className="font-noto">{children}</main>
           <Footer />
