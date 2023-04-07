@@ -11,14 +11,14 @@ export const MainTitle: FC<Props> = ({ title, titleEn, isAnim }) => {
   if (isAnim) {
     return (
       <h2 data-scroll className={`title_anim ${styles.title}`}>
-        <span data-titleEn={titleEn}>
-          {Array.from(titleEn).map((char: string) => (
-            <span key={char}>{char}</span>
+        <span data-titleen={titleEn}>
+          {Array.from(titleEn).map((char: string, i: number) => (
+            <span key={`${char}_titleEn_${titleEn}_${i}`}>{char}</span>
           ))}
         </span>
         <span data-title={title}>
-          {Array.from(title).map((char: string) => (
-            <span key={char}>{char}</span>
+          {Array.from(title).map((char: string, i: number) => (
+            <span key={`${char}_title_${title}_${i}`}>{char}</span>
           ))}
         </span>
       </h2>
