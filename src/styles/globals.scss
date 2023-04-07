@@ -46,7 +46,7 @@ a {
     inset: 0;
     background-color: var(--main);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-
+    border-radius: 15px;
     transition: clip-path 0.6s;
   }
   &.is-inview {
