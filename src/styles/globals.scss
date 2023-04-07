@@ -2,5 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --main: #c21244;
+}
+
+html {
+  scroll-behavior: smooth;
+  // scroll-padding-top: 7rem;
+}
+
 body {
+  background-color: rgba(194, 18, 68, 0.02);
+}
+
+img {
+  vertical-align: bottom;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+.keyvisual {
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    display: block;
+    inset: 0;
+    background-color: #000;
+    opacity: 0.2;
+  }
 }

@@ -10,7 +10,7 @@ export const Layout: FC<Props> = ({ children }) => {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className="font-noto">{children}</main>
       <Footer />
     </>
   )
