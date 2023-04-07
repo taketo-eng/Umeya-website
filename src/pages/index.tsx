@@ -8,8 +8,8 @@ export default function Home() {
     <Layout>
       <div className="keyvisual">
         <picture>
-          <source media="(max-width:767px)" srcSet="kv_sp.jpg" />
-          <img className="w-full" src="kv.jpg" alt="" />
+          <source media="(max-width:767px)" width="500" height="800" srcSet="kv_sp.jpg" />
+          <img width="1920" height="1080" className="w-full" src="kv.jpg" alt="" />
         </picture>
       </div>
       <section id="about" className="pt-16 pb-8 md:pt-20 md:pb-10">
