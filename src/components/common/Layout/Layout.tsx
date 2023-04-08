@@ -6,6 +6,7 @@ import Head from "next/head"
 import Script from "next/script"
 import Link from "next/link"
 import Image from "next/image"
+import { SeoHead } from "../SeoHead"
 
 type Props = {
   children: ReactNode
@@ -16,9 +17,7 @@ export const Layout: FC<Props> = ({ children }) => {
 
   return (
     <>
-      <Head>
-        <meta name="robots" content="noindex,nofollow"></meta>
-      </Head>
+      <SeoHead />
       <Script id="preload" strategy="lazyOnload">
         {`
           const wrapper = document.querySelector(".top_wrapper")
