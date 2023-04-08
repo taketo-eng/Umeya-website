@@ -6,7 +6,7 @@ import Script from "next/script"
 const noto = Noto_Sans_JP({
   subsets: ["latin"],
   variable: "--font-noto",
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "700", "900"],
 })
 
 export default function App({ Component, pageProps }: AppProps) {

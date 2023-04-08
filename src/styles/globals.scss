@@ -32,7 +32,7 @@ a {
     position: absolute;
     inset: 0;
     background-color: #000;
-    opacity: 0.2;
+    opacity: 0.1;
   }
 }
 
@@ -117,4 +117,26 @@ a {
   -ms-transition: none !important;
   -o-transition: none !important;
   transition: none !important;
+}
+
+.ripple {
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    background-color: var(--main);
+    z-index: -1;
+    border-radius: 6px;
+    scale: 1;
+    transition: scale 0s, opacity 0s;
+  }
+
+  &:hover {
+    &::before {
+      scale: 1.2;
+      opacity: 0;
+      transition: scale 0.3s ease-in-out, opacity 0.5s;
+    }
+  }
 }

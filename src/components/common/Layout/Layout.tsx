@@ -4,6 +4,8 @@ import { Footer } from "@/components/common/Footer"
 import { LocomotiveScrollProvider } from "react-locomotive-scroll"
 import Head from "next/head"
 import Script from "next/script"
+import Link from "next/link"
+import Image from "next/image"
 
 type Props = {
   children: ReactNode
@@ -26,6 +28,7 @@ export const Layout: FC<Props> = ({ children }) => {
       <LocomotiveScrollProvider
         options={{
           smooth: false,
+          offset: ["25%", 0],
         }}
         watch={[]}
         containerRef={ref}
@@ -34,6 +37,9 @@ export const Layout: FC<Props> = ({ children }) => {
           <Header />
           <main className="font-noto">{children}</main>
           <Footer />
+          <Link scroll={false} className="ripple fixed right-4 bottom-4 w-8 md:w-10" href="#top">
+            <Image className="w-full" src="/top_btn.svg" width={32} height={32} alt="top" />
+          </Link>
         </div>
       </LocomotiveScrollProvider>
     </>
