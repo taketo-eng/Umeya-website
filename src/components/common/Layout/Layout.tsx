@@ -32,6 +32,7 @@ export const Layout: FC<Props> = ({ children }) => {
         watch={[]}
         containerRef={ref}
       >
+        <div className="bg_wrapper"></div>
         <div className="preload top_wrapper" data-scroll-container id="top" ref={ref}>
           <Header />
           <main className="font-noto">{children}</main>

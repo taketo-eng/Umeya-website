@@ -11,6 +11,7 @@ export default function Home() {
           <source media="(max-width:767px)" width="500" height="800" srcSet="kv_sp.jpg" />
           <img width="1920" height="1080" className="w-full" src="kv.jpg" alt="" />
         </picture>
+        <p className="catch font-serif">集い、繋がり、残す</p>
       </div>
       <section id="about" className="pt-16 pb-8 md:pt-20 md:pb-10">
         <div className="w-base max-w-7xl mx-auto">
@@ -22,7 +23,8 @@ export default function Home() {
               </div>
               <div>
                 <p data-scroll className={`${styles.text} fadein_anim`}>
-                  テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                  梅屋は<b>集い・繋がり・残す</b>
+                  をテーマにした場所です。シェアテナントやシェアオフィス、時にはギャラリーや音楽イベントなどをおこなっていき、そこで人々が集い、繋がっていく。そんな落ち着く場所を作って、それと共に伝統を残していきたいという思いが詰まっています。是非、休みの日のひと時や寄り道で立ち寄ってください。
                 </p>
               </div>
             </div>
@@ -32,7 +34,31 @@ export default function Home() {
       <section id="history" className="py-8 md:py-10">
         <div className=" w-base max-w-7xl mx-auto">
           <MainTitle isAnim title="梅屋の歴史" titleEn="History" />
-          <div className="md:px-4 px-0"></div>
+          <div className="md:px-4 px-0">
+            <div className={styles.history_container}>
+              <ul className={styles.history_list}>
+                <li>
+                  <h3>明治期</h3>
+                  <p>
+                    1902年(明治35年)に主屋が建築され、<b>油屋</b>という<b>料亭</b>が営まれていました
+                  </p>
+                </li>
+                <li>
+                  <h3>大正期</h3>
+                  <p>
+                    それまで料亭を営んでいた町家を<b>松延新三郎</b>が買い取り、<b>梅屋</b>と号して<b>薬種商</b>を営み始め、薬やダイナマイトを販売していました
+                  </p>
+                </li>
+                <li>
+                  <h3>昭和期</h3>
+                  <p>1935年(昭和10年)に松延新三郎が、離屋を新築したと伝わっています</p>
+                </li>
+              </ul>
+              <div className={styles.history_image}>
+                <Image src="/history.jpg" width={1107} height={792} alt="history" />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <section id="background" className="py-8 md:py-10">
@@ -66,7 +92,7 @@ export default function Home() {
               <address className={`${styles.text} not-italic font-medium`}>福岡県八女市黒木町黒木37</address>
               <p>
                 駐車場から徒歩4分
-                <br />※ 駐車場：黒木体育センター隣の黒木町無料駐車場
+                <br />※ 駐車場：黒木体育センター隣の無料駐車場
               </p>
             </div>
 

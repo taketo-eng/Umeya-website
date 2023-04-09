@@ -5,17 +5,23 @@ export const SeoHead = () => {
   return (
     <>
       <Head>
-        <title>梅屋 | 八女市黒木町の伝統建築</title>
-        <meta name="description" content="" />
+        <title>梅屋 | 八女市黒木町</title>
+        <meta
+          name="description"
+          content="福岡県八女市黒木町にある梅屋の公式ページです。梅屋は集い・繋がり・残すをテーマにし、シェアテナントやシェアオフィス、時にはギャラリーや音楽イベントなどをおこなっていく場所です。"
+        />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@" />
-        <meta property="og:title" content="梅屋" />
+        <meta property="og:title" content="梅屋 | 八女市黒木町" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://umeya.life/" />
-        <meta property="og:description" content="description" />
-        <meta property="og:image" content="https://umeya.life/test.jpg" />
-        <meta name="robots" content="noindex,nofollow"></meta>
+        <meta
+          property="og:description"
+          content="福岡県八女市黒木町にある梅屋の公式ページです。梅屋は集い・繋がり・残すをテーマにし、シェアテナントやシェアオフィス、時にはギャラリーや音楽イベントなどをおこなっていく場所です。"
+        />
+        <meta property="og:image" content="https://umeya.life/og.jpg" />
+        {/* <meta name="robots" content="noindex,nofollow"></meta> */}
       </Head>
       <Script type="application/ld+json" id="structerd_data">{`
       {{

@@ -12,7 +12,26 @@ html {
 }
 
 body {
-  background-color: rgba(194, 18, 68, 0.02);
+  // background-color: rgba(194, 18, 68, 0.02);
+}
+
+.bg_wrapper {
+  position: fixed;
+  inset: 0;
+  display: block;
+  z-index: -1;
+  background-image: url("/paper.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  &::after {
+    content: "";
+    display: block;
+    inset: 0;
+    position: absolute;
+    background-color: rgba(194, 18, 68, 0.03);
+  }
 }
 
 img {
@@ -33,6 +52,39 @@ a {
     inset: 0;
     background-color: #000;
     opacity: 0.1;
+  }
+
+  .catch {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: #fff;
+    translate: -50% -50%;
+    writing-mode: vertical-rl;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 0 0 10px var(--main);
+    height: 100%;
+    text-align: center;
+    opacity: 0;
+    animation: fadein 0.6s forwards;
+    animation-delay: 0.4s;
+
+    @media screen and (max-width: 767px) {
+      font-size: 30px;
+      left: 70%;
+      top: 50%;
+    }
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
