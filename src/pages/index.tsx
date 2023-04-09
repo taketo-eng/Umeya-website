@@ -36,7 +36,7 @@ export default function Home() {
           <MainTitle isAnim title="梅屋の歴史" titleEn="History" />
           <div className="md:px-4 px-0">
             <div className={styles.history_container}>
-              <ul className={styles.history_list}>
+              <ul data-scroll className={`${styles.history_list} fadein_anim`}>
                 <li>
                   <h3>明治期</h3>
                   <p>
@@ -54,7 +54,7 @@ export default function Home() {
                   <p>1935年(昭和10年)に松延新三郎が、離屋を新築したと伝わっています</p>
                 </li>
               </ul>
-              <div className={styles.history_image}>
+              <div data-scroll className={`${styles.history_image} open_anim`}>
                 <Image src="/history.jpg" width={1107} height={792} alt="history" />
               </div>
             </div>
