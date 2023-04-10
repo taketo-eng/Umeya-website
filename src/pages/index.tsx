@@ -11,13 +11,15 @@ export default function Home() {
           <source media="(max-width:767px)" width="500" height="800" srcSet="kv_sp.jpg" />
           <img width="1920" height="1080" className="w-full" src="kv.jpg" alt="" />
         </picture>
-        <p className="catch font-serif">
-          人々が集い、
-          <br />
-          {"　　"}人と地域が繋がり、
-          <br />
-          {"　　　　"}伝統を残す
-        </p>
+        <div className="catch">
+          <p className="font-serif">
+            人々が集い、
+            <br />
+            {"　　"}人と地域が繋がり、
+            <br />
+            {"　　　　"}伝統を残す
+          </p>
+        </div>
       </div>
       <section id="about" className="pt-16 pb-8 md:pt-20 md:pb-10">
         <div className="w-base max-w-7xl mx-auto">

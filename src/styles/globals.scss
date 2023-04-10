@@ -57,23 +57,28 @@ a {
   .catch {
     position: absolute;
     z-index: 1;
-    left: 50%;
-    top: 50%;
-    color: #fff;
-    translate: -50% -50%;
-    writing-mode: vertical-rl;
-    font-size: 40px;
-    font-weight: bold;
-    text-shadow: 0 0 10px var(--main);
-    height: 70%;
-    opacity: 0;
-    animation: fadein 0.6s forwards;
-    animation-delay: 0.4s;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      writing-mode: vertical-rl;
+      opacity: 0;
+      animation: fadein 0.6s forwards;
+      animation-delay: 0.4s;
+      color: #fff;
+
+      font-size: 36px;
+      font-weight: bold;
+      text-shadow: 0 0 10px var(--main);
+    }
 
     @media screen and (max-width: 767px) {
-      font-size: 30px;
-      left: 70%;
-      top: 50%;
+      p {
+        font-size: 30px;
+        translate: 50% 0;
+      }
     }
   }
 }
