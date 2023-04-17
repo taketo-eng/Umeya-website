@@ -1,9 +1,31 @@
 import { MainTitle } from "@/components/Titles/MainTitle"
 import { Layout } from "@/components/common/Layout/Layout"
 import styles from "@/styles/common.module.scss"
+import FullCalendar from "@fullcalendar/react"
+import dayGridPlugin from "@fullcalendar/daygrid"
+import timeGridPlugin from "@fullcalendar/timegrid"
 import Image from "next/image"
+import { client } from "@/libs/microcms"
+import { NextPage } from "next"
+import { Schedule } from "@/types/common"
 
-export default function Home() {
+export const getServerSideProps = async () => {
+  const data = await client.get({
+    endpoint: "schedule",
+  })
+  console.log(data)
+  return {
+    props: {
+      schedules: data.schedules,
+    },
+  }
+}
+
+type Props = {
+  schedules: Schedule[]
+}
+
+const Home: NextPage<Props> = ({ schedules }) => {
   return (
     <Layout>
       <div className="keyvisual">
@@ -94,24 +116,56 @@ export default function Home() {
       </section>
       <section id="access" className="pb-16 pt-8 md:pb-20 md:pt-10">
         <div className="w-base max-w-7xl mx-auto">
-          <MainTitle isAnim title="アクセス" titleEn="Access" />
+          <MainTitle isAnim title="アクセス・スケジュール" titleEn="Access & Schedule" />
           <div className="md:px-4 px-0">
-            <div data-scroll className="fadein_anim mb-6">
+            <div data-scroll className="fadein_anim mb-8">
               <address className={`${styles.text} not-italic font-medium`}>福岡県八女市黒木町黒木37</address>
               <p>
                 駐車場から徒歩4分
                 <br />※ 駐車場：黒木体育センター隣の無料駐車場
               </p>
             </div>
+            <div>
+              <div className={`${styles.access_wrapper}`}>
+                <div>
+                  <div className="w-full pt-[100%] relative md:pt-[72%]">
+                    <iframe
+                      className="absolute w-full h-full inset-0 border-none"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d834.5138870645227!2d130.67101151153!3d33.21263992720276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541087eea76d23d%3A0x93658f51ad481975!2z44CSODM0LTEyMTcg56aP5bKh55yM5YWr5aWz5biC6buS5pyo55S66buS5pyo77yT77yX!5e0!3m2!1sja!2sjp!4v1680924060602!5m2!1sja!2sjp"
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                </div>
+                <div>
+                  <FullCalendar
+                    allDayText="日中"
+                    plugins={[dayGridPlugin, timeGridPlugin]}
+                    locale="ja"
+                    events={
+                      schedules && !!schedules.length
+                        ? schedules.map((schedule) => {
+                            if (!schedule.start_date && !schedule.start_time) return []
+                            return {
+                              title: schedule.title ? schedule.title : "Open",
 
-            <div className="w-full pt-[40%] relative">
-              <iframe
-                className="absolute w-full h-full inset-0 border-none"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d834.5138870645227!2d130.67101151153!3d33.21263992720276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541087eea76d23d%3A0x93658f51ad481975!2z44CSODM0LTEyMTcg56aP5bKh55yM5YWr5aWz5biC6buS5pyo55S66buS5pyo77yT77yX!5e0!3m2!1sja!2sjp!4v1680924060602!5m2!1sja!2sjp"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+                              allDay: !!schedule.start_date && !schedule.start_time,
+                              start: schedule.start_date ? schedule.start_date : schedule.start_time ? schedule.start_time : undefined,
+                              end: schedule.end_date ? schedule.end_date : schedule.end_time ? schedule.end_time : undefined,
+                            }
+                          })
+                        : []
+                    }
+                    headerToolbar={{
+                      left: "prev,next",
+                      center: "title",
+                      right: "dayGridMonth,timeGridWeek,timeGridDay",
+                    }}
+                    initialView="dayGridMonth"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -119,3 +173,5 @@ export default function Home() {
     </Layout>
   )
 }
+
+export default Home

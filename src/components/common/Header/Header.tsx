@@ -1,9 +1,9 @@
 import Image from "next/image"
 import styles from "./Header.module.scss"
-import { useState } from "react"
+import { FC, useState } from "react"
 import Link from "next/link"
 
-export const Header = () => {
+export const Header: FC = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggle = () => {
@@ -55,7 +55,7 @@ export const Header = () => {
           </li>
           <li>
             <Link scroll={false} onClick={close} href="#access">
-              Access
+              Access & Schedule
             </Link>
           </li>
         </ul>
