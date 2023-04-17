@@ -13,7 +13,6 @@ export const getServerSideProps = async () => {
   const data = await client.get({
     endpoint: "schedule",
   })
-  console.log(data)
   return {
     props: {
       schedules: data.schedules,
