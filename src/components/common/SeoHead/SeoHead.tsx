@@ -21,7 +21,7 @@ export const SeoHead = () => {
           content="福岡県八女市黒木町にある梅屋の公式ページです。梅屋は集い・繋がり・残すをテーマにし、シェアテナントやシェアオフィス、時にはギャラリーや音楽イベントなどをおこなっていく場所です。"
         />
         <meta property="og:image" content="https://umeya.life/og.jpg" />
-        {/* <meta name="robots" content="noindex,nofollow"></meta> */}
+        <meta name="robots" content="index,follow"></meta>
       </Head>
       <Script type="application/ld+json" id="structerd_data">{`
       {{
