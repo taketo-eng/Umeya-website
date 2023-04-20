@@ -30,7 +30,7 @@ export const SeoHead = () => {
         "name": "梅屋",
         "image": "https://umeya.life/logo.png",
         "url": "https://umeya.life",
-        "address': {
+        "address": {
             "@type": "PostalAddress",
             "streetAddress": "黒木町黒木37",
             "addressLocality": "八女市",
