@@ -29,8 +29,8 @@ const Home: NextPage<Props> = ({ schedules }) => {
     <Layout>
       <div className="keyvisual">
         <picture>
-          <source media="(max-width:767px)" width="500" height="800" srcSet="kv_sp.jpg" />
-          <img width="1920" height="1080" className="w-full" src="kv.jpg" alt="" />
+          <source media="(max-width:767px)" width="500" height="800" srcSet="kv_sp.webp" />
+          <img width="1920" height="1080" className="w-full" src="kv.webp" alt="" />
         </picture>
         <div className="catch">
           <p className="font-serif">
