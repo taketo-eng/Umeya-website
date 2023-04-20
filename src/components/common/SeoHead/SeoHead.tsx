@@ -24,7 +24,7 @@ export const SeoHead = () => {
         <meta name="robots" content="index,follow"></meta>
       </Head>
       <Script type="application/ld+json" id="structerd_data">{`
-      {{
+      {
         "@context": "http://schema.org",
         "@type": "LocalBusiness",
         "name": "梅屋",
@@ -38,7 +38,7 @@ export const SeoHead = () => {
             "postalCode": "834-1292",
             "addressCountry": "JP"
         }
-      }}
+      }
       `}</Script>
     </>
   )
