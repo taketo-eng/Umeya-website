@@ -58,6 +58,16 @@ export const Header: FC = () => {
               Access & Schedule
             </Link>
           </li>
+          <li>
+            <a target="_blank" rel="noopener noreferrer" onClick={close} href="https://www.facebook.com/umeya.kurogi">
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a target="_blank" rel="noopener noreferrer" onClick={close} href="https://www.instagram.com/umeya_kurogi/">
+              Instagram
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
