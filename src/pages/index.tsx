@@ -38,7 +38,6 @@ const Home: NextPage<Props> = ({ schedules }) => {
   const topPageSeo = useMemo(() => <TopPageSeo />, [locale])
   return (
     <Layout>
-      <MyDefaultSeo />
       {topPageSeo}
       <div className="keyvisual">
         <picture>
