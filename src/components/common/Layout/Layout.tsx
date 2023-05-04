@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useMemo, useRef } from "react"
+import { FC, ReactNode, useRef } from "react"
 import { Header } from "@/components/common/Header"
 import { Footer } from "@/components/common/Footer"
 import { LocomotiveScrollProvider } from "react-locomotive-scroll"
@@ -16,7 +16,7 @@ export const Layout: FC<Props> = ({ children }) => {
 
   return (
     <>
-      <SeoHead />
+      {/* <SeoHead /> */}
       <Script id="preload" strategy="lazyOnload">
         {`
           const wrapper = document.querySelector(".top_wrapper")
