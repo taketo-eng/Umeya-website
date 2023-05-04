@@ -9,10 +9,10 @@ export const SeoHead = () => {
   return (
     <>
       <Head>
-        {/* <link rel="alternate" hrefLang="ja" href={originalUrl} />
+        <link rel="alternate" hrefLang="ja" href={originalUrl} />
         <link rel="alternate" hrefLang="en" href={`${originalUrl}/en`} />
         <link rel="alternate" hrefLang="x-default" href={originalUrl} />
-        <title>{t("top.title")}</title>
+        {/* <title>{t("top.title")}</title>
         <meta name="description" content={`${t("site_desc")}`} /> */}
 
         <meta name="twitter:card" content="summary_large_image" />
