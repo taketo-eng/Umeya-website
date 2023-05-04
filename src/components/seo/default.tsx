@@ -1,4 +1,4 @@
-import { DefaultSeo, DefaultSeoProps } from "next-seo"
+import { NextSeo, DefaultSeoProps } from "next-seo"
 import { useRouter } from "next/router"
 import { useTranslation } from "react-i18next"
 import Script from "next/script"
@@ -57,7 +57,7 @@ export const MyDefaultSeo = () => {
 
   return (
     <>
-      <DefaultSeo
+      <NextSeo
         defaultTitle={siteName}
         titleTemplate={titleTemplate}
         description={description}
@@ -78,6 +78,10 @@ export const MyDefaultSeo = () => {
               alt: siteName,
             },
           ],
+        }}
+        twitter={{
+          site: "@",
+          cardType: "summary_large_image",
         }}
       />
       <Script type="application/ld+json" id="structerd_data">{`
