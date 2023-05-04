@@ -6,6 +6,7 @@ const withTM = require("next-transpile-modules")([
   "@fullcalendar/react",
   "@fullcalendar/timegrid",
 ])
+
 const { i18n } = require("./next-i18next.config")
 
 const nextConfig = {
