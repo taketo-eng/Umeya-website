@@ -1,12 +1,11 @@
-import { FC, ReactNode, useEffect, useMemo, useRef } from "react"
+import { FC, ReactNode, useRef } from "react"
 import { Header } from "@/components/common/Header"
 import { Footer } from "@/components/common/Footer"
 import { LocomotiveScrollProvider } from "react-locomotive-scroll"
 import Script from "next/script"
 import Link from "next/link"
 import Image from "next/image"
-import { useRouter } from "next/router"
-import { MyDefaultSeo } from "@/components/seo/default"
+import { SeoHead } from "../SeoHead"
 
 type Props = {
   children: ReactNode
@@ -14,13 +13,10 @@ type Props = {
 
 export const Layout: FC<Props> = ({ children }) => {
   const ref = useRef(null)
-  const { locale } = useRouter()
-
-  const myDefaultSeo = useMemo(() => <MyDefaultSeo />, [locale])
 
   return (
     <>
-      {myDefaultSeo}
+      <SeoHead />
       <Script id="preload" strategy="lazyOnload">
         {`
           const wrapper = document.querySelector(".top_wrapper")
