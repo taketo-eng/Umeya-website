@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document"
 
 export default function Document() {
   return (
-    <Html lang="ja">
+    <Html>
       <Head>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </Head>
