@@ -74,12 +74,29 @@ a {
       text-shadow: 0 0 10px var(--main);
     }
 
+    &.en {
+      p {
+        writing-mode:horizontal-tb;
+      }
+    }
+
     @media screen and (max-width: 767px) {
       p {
         font-size: 30px;
         translate: 50% 0;
       }
+
+      &.en {
+        p {
+          max-width:calc(100% - 32px);
+          margin:0 auto;
+          translate:0 0;
+          font-size:25px;
+        }
+      }
     }
+
+
   }
 }
 
