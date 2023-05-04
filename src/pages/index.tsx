@@ -199,10 +199,11 @@ const Home: NextPage<Props> = ({ schedules }) => {
                               return []
                             return {
                               title: schedule.title
-                                ? lang === "en"
-                                  ? schedule.title_en
-                                  : schedule.title
-                                : "Open",
+                                ? schedule.title
+                                : // ? lang === "en"
+                                  //   ? schedule.title_en
+                                  //   : schedule.title
+                                  "Open",
 
                               allDay:
                                 !!schedule.start_date && !schedule.start_time,
