@@ -20,7 +20,7 @@ export const Layout: FC<Props> = ({ children }) => {
 
   return (
     <>
-      {myDefaultSeo}
+      {/* {myDefaultSeo} */}
       <Script id="preload" strategy="lazyOnload">
         {`
           const wrapper = document.querySelector(".top_wrapper")
