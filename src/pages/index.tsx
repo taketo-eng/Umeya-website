@@ -31,13 +31,13 @@ type Props = {
 }
 
 const Home: NextPage<Props> = ({ schedules }) => {
-  const { locale } = useRouter()
+  // const { locale } = useRouter()
   const { t, i18n } = useTranslation("common")
   const lang = i18n.language
-  const topPageSeo = useMemo(() => <TopPageSeo />, [locale])
+  // const topPageSeo = useMemo(() => <TopPageSeo />, [locale])
   return (
     <Layout>
-      {topPageSeo}
+      {/* {topPageSeo} */}
       <div className="keyvisual">
         <picture>
           <source
