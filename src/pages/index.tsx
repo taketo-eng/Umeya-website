@@ -13,6 +13,7 @@ import { useTranslation } from "next-i18next"
 import { TopPageSeo } from "@/components/seo/top"
 import { useMemo } from "react"
 import { useRouter } from "next/router"
+import { MyDefaultSeo } from "@/components/seo/default"
 
 export const getServerSideProps = async ({ locale }: { locale: string }) => {
   const data = await client.get({
@@ -31,13 +32,15 @@ type Props = {
 }
 
 const Home: NextPage<Props> = ({ schedules }) => {
-  // const { locale } = useRouter()
+  const { locale } = useRouter()
   const { t, i18n } = useTranslation("common")
   const lang = i18n.language
-  // const topPageSeo = useMemo(() => <TopPageSeo />, [locale])
+  const myDefaultSeo = useMemo(() => <MyDefaultSeo />, [locale])
+  const topPageSeo = useMemo(() => <TopPageSeo />, [locale])
   return (
     <Layout>
-      {/* {topPageSeo} */}
+      {myDefaultSeo}
+      {topPageSeo}
       <div className="keyvisual">
         <picture>
           <source

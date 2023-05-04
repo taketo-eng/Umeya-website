@@ -14,13 +14,9 @@ type Props = {
 
 export const Layout: FC<Props> = ({ children }) => {
   const ref = useRef(null)
-  const { locale } = useRouter()
-
-  const myDefaultSeo = useMemo(() => <MyDefaultSeo />, [locale])
 
   return (
     <>
-      {/* {myDefaultSeo} */}
       <Script id="preload" strategy="lazyOnload">
         {`
           const wrapper = document.querySelector(".top_wrapper")
