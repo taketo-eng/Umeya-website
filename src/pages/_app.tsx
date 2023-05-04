@@ -1,6 +1,3 @@
-import "@fullcalendar/core"
-import "@fullcalendar/daygrid"
-import "@fullcalendar/timegrid"
 import "@/styles/globals.scss"
 import type { AppProps } from "next/app"
 import { Noto_Sans_JP } from "next/font/google"

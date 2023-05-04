@@ -186,6 +186,7 @@ const Home: NextPage<Props> = ({ schedules }) => {
                     allDayText={lang === "en" ? "All-day" : "日中"}
                     plugins={[dayGridPlugin, timeGridPlugin]}
                     locale={lang}
+                    lazyFetching
                     events={
                       schedules && !!schedules.length
                         ? schedules.map((schedule) => {
@@ -193,11 +194,10 @@ const Home: NextPage<Props> = ({ schedules }) => {
                               return []
                             return {
                               title: schedule.title
-                                ? schedule.title
-                                : // ? lang === "en"
-                                  //   ? schedule.title_en
-                                  //   : schedule.title
-                                  "Open",
+                                ? lang === "en"
+                                  ? schedule.title_en
+                                  : schedule.title
+                                : "Open",
 
                               allDay:
                                 !!schedule.start_date && !schedule.start_time,
