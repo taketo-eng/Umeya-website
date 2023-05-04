@@ -35,11 +35,10 @@ const Home: NextPage<Props> = ({ schedules }) => {
   const { locale } = useRouter()
   const { t, i18n } = useTranslation("common")
   const lang = i18n.language
-  const myDefaultSeo = useMemo(() => <MyDefaultSeo />, [locale])
   const topPageSeo = useMemo(() => <TopPageSeo />, [locale])
   return (
     <Layout>
-      {myDefaultSeo}
+      <MyDefaultSeo />
       {topPageSeo}
       <div className="keyvisual">
         <picture>
