@@ -3,7 +3,6 @@ import type { AppProps } from "next/app"
 import { Noto_Sans_JP } from "next/font/google"
 import Script from "next/script"
 import { appWithTranslation } from "next-i18next"
-import { MyDefaultSeo } from "@/components/seo/default"
 
 const noto = Noto_Sans_JP({
   subsets: ["latin"],
@@ -14,7 +13,6 @@ const noto = Noto_Sans_JP({
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
-      <MyDefaultSeo />
       <Script id="adobe-font">
         {`
    (function(d) {

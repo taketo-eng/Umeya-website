@@ -5,8 +5,7 @@ import { LocomotiveScrollProvider } from "react-locomotive-scroll"
 import Script from "next/script"
 import Link from "next/link"
 import Image from "next/image"
-import { useRouter } from "next/router"
-import { MyDefaultSeo } from "@/components/seo/default"
+import { SeoHead } from "../SeoHead"
 
 type Props = {
   children: ReactNode
@@ -17,6 +16,7 @@ export const Layout: FC<Props> = ({ children }) => {
 
   return (
     <>
+      <SeoHead />
       <Script id="preload" strategy="lazyOnload">
         {`
           const wrapper = document.querySelector(".top_wrapper")
