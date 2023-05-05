@@ -173,6 +173,7 @@ const Home: NextPage<Props> = ({ schedules }) => {
                 <div>
                   <div className="w-full pt-[100%] relative md:pt-[72%]">
                     <iframe
+                      title="Umeya Google Map"
                       className="absolute w-full h-full inset-0 border-none"
                       src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d834.5138870645227!2d130.67101151153!3d33.21263992720276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541087eea76d23d%3A0x93658f51ad481975!2z44CSODM0LTEyMTcg56aP5bKh55yM5YWr5aWz5biC6buS5pyo55S66buS5pyo77yT77yX!5e0!3m2!1sja!2sjp!4v1680924060602!5m2!1s${lang}!2sjp`}
                       allowFullScreen
