@@ -6,6 +6,11 @@
   --main: #c21244;
 }
 
+::selection {
+  background: var(--main);
+  color:#fff;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 70px;
