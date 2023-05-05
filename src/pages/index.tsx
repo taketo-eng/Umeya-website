@@ -63,7 +63,7 @@ const Home: NextPage<Props> = ({ schedules }) => {
           <div className="md:px-4 px-0">
             <div className={`${styles.row}`}>
               <div className="open_anim" data-scroll>
-                <Image src="/about.jpg" width={1200} height={675} alt="" />
+                <Image src="/about.webp" width={1200} height={675} alt="" />
               </div>
               <div>
                 <p
@@ -111,7 +111,7 @@ const Home: NextPage<Props> = ({ schedules }) => {
               </ul>
               <div data-scroll className={`${styles.history_image} open_anim`}>
                 <Image
-                  src="/history.jpg"
+                  src="/history.webp"
                   width={1107}
                   height={792}
                   alt="history"
@@ -131,7 +131,12 @@ const Home: NextPage<Props> = ({ schedules }) => {
           <div className="md:px-4 px-0">
             <div className={`${styles.row} ${styles.reverse}`}>
               <div className="open_anim" data-scroll>
-                <Image src="/yabe_river.jpg" width={1200} height={675} alt="" />
+                <Image
+                  src="/yabe_river.webp"
+                  width={1200}
+                  height={675}
+                  alt=""
+                />
               </div>
               <div>
                 <p
