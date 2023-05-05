@@ -220,115 +220,181 @@ a {
   }
 }
 
-.fc {
-  .fc-button-group {
-  }
+.rbc-time-header {
+ @media screen and (max-width:767px) {
+  margin-right:0 !important;
+ }
+}
 
-  .fc-daygrid-day-number {
-    font-size: 14px;
-  }
-  .fc-button {
-    font-size: 14px;
-    display: flex;
-    padding: 4px 6px;
-
-    color: var(--main);
-    background-color: transparent;
-    border-color: var(--main);
-
-    transition: opacity 0.3s;
-
-    &:hover {
-      background-color: unset;
-      border-color: var(--main);
-      color: var(--main);
-
-      opacity: 0.7;
-    }
-
-    &.fc-button-active {
-      background-color: var(--main) !important;
-      border-color: var(--main) !important;
-
-      &:hover {
-        background-color: var(--main);
-        color: #fff;
-      }
-    }
-  }
-
-  .fc-view-harness {
-    height: 0 !important;
-    padding-top: 120%;
-    background-color: #fff;
-  }
-
-  .fc-toolbar {
-    gap: 8px;
-    &.fc-header-toolbar {
-      margin-bottom: 16px !important;
-    }
-  }
-
-  .fc-h-event {
-    .fc-event-title {
-      font-size: 12px;
-    }
-  }
-
-  .fc-col-header-cell-cushion {
-    font-size: 12px;
-
-    @media screen and (max-width: 767px) {
-      font-size: 10px;
-    }
-  }
-
-  .fc-timegrid-axis-cushion {
-    font-size: 12px;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .fc-timegrid-slot-label-cushion {
-    font-size: 12px;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .fc-scroller-liquid-absolute {
-    overflow: auto !important;
-  }
-
-  .fc-scroller {
-    overflow: auto !important;
-  }
-
-  .fc-toolbar-title {
-    font-size: 16px;
+.rbc-toolbar {
+  .rbc-toolbar-label {
+    color:var(--main);
     font-weight: bold;
-    color: var(--main);
+    font-size:16px !important;
+
+    @media screen and (max-width:767px) {
+      font-size:14px !important;
+    }
   }
+  button {
+    font-weight: 500 !important;
+    font-size:15px !important;
+    padding:3px 6px !important;
+    border-color:var(--main) !important;
+    color:var(--main) !important;
+    background-color: #fff !important;
+    
+    @media screen and (max-width:767px) {
+      font-size:14px !important;
+    }
 
-  .fc-h-event {
-    background-color: var(--main) !important;
-    border-color: var(--main) !important;
-  }
-
-  colgroup {
-    col {
-      width: 40px !important;
-
-      @media screen and (max-width: 767px) {
-        width: 30px !important;
-      }
+    &.rbc-active {
+      color:#fff !important;
+      background-color:var(--main) !important;
     }
   }
 }
+
+.rbc-time-slot {
+  .rbc-label {
+    font-size:12px;
+  }
+}
+
+.rbc-month-view {
+  background-color:#fff;
+}
+.rbc-day-view {
+  background-color:#fff;
+}
+
+.rbc-time-view {
+  background-color:#fff;
+
+  @media screen and (max-width:767px) {
+    .rbc-row {
+      min-height:unset !important;
+  
+      .rbc-header {
+        white-space: unset !important;
+        flex:unset !important;
+      }
+    }
+  }
+
+ 
+}
+
+
+// .fc {
+//   .fc-button-group {
+//   }
+
+//   .fc-daygrid-day-number {
+//     font-size: 14px;
+//   }
+//   .fc-button {
+//     font-size: 14px;
+//     display: flex;
+//     padding: 4px 6px;
+
+//     color: var(--main);
+//     background-color: transparent;
+//     border-color: var(--main);
+
+//     transition: opacity 0.3s;
+
+//     &:hover {
+//       background-color: unset;
+//       border-color: var(--main);
+//       color: var(--main);
+
+//       opacity: 0.7;
+//     }
+
+//     &.fc-button-active {
+//       background-color: var(--main) !important;
+//       border-color: var(--main) !important;
+
+//       &:hover {
+//         background-color: var(--main);
+//         color: #fff;
+//       }
+//     }
+//   }
+
+//   .fc-view-harness {
+//     height: 0 !important;
+//     padding-top: 120%;
+//     background-color: #fff;
+//   }
+
+//   .fc-toolbar {
+//     gap: 8px;
+//     &.fc-header-toolbar {
+//       margin-bottom: 16px !important;
+//     }
+//   }
+
+//   .fc-h-event {
+//     .fc-event-title {
+//       font-size: 12px;
+//     }
+//   }
+
+//   .fc-col-header-cell-cushion {
+//     font-size: 12px;
+
+//     @media screen and (max-width: 767px) {
+//       font-size: 10px;
+//     }
+//   }
+
+//   .fc-timegrid-axis-cushion {
+//     font-size: 12px;
+//     display: flex;
+//     width: 100%;
+//     height: 100%;
+//     align-items: center;
+//     justify-content: center;
+//     text-align: center;
+//   }
+
+//   .fc-timegrid-slot-label-cushion {
+//     font-size: 12px;
+//     display: flex;
+//     width: 100%;
+//     height: 100%;
+//     align-items: center;
+//     justify-content: center;
+//   }
+
+//   .fc-scroller-liquid-absolute {
+//     overflow: auto !important;
+//   }
+
+//   .fc-scroller {
+//     overflow: auto !important;
+//   }
+
+//   .fc-toolbar-title {
+//     font-size: 16px;
+//     font-weight: bold;
+//     color: var(--main);
+//   }
+
+//   .fc-h-event {
+//     background-color: var(--main) !important;
+//     border-color: var(--main) !important;
+//   }
+
+//   colgroup {
+//     col {
+//       width: 40px !important;
+
+//       @media screen and (max-width: 767px) {
+//         width: 30px !important;
+//       }
+//     }
+//   }
+// }

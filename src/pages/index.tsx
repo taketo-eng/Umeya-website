@@ -1,15 +1,27 @@
 import { MainTitle } from "@/components/Titles/MainTitle"
 import { Layout } from "@/components/common/Layout/Layout"
 import styles from "@/styles/common.module.scss"
-import FullCalendar from "@fullcalendar/react"
-import dayGridPlugin from "@fullcalendar/daygrid"
-import timeGridPlugin from "@fullcalendar/timegrid"
+// import FullCalendar from "@fullcalendar/react"
+// import dayGridPlugin from "@fullcalendar/daygrid"
+// import timeGridPlugin from "@fullcalendar/timegrid"
 import Image from "next/image"
 import { client } from "@/libs/microcms"
 import { NextPage } from "next"
 import { Schedule } from "@/types/common"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useTranslation } from "next-i18next"
+import { Calendar, momentLocalizer } from "react-big-calendar"
+import moment from "moment"
+require("moment/locale/ja.js")
+// import format from "date-fns/format"
+// import ja from "date-fns/locale/ja"
+// import en from "date-fns/locale/en-US"
+// import parse from "date-fns/parse"
+// import startOfWeek from "date-fns/startOfWeek"
+// import getDay from "date-fns/getDay"
+import "react-big-calendar/lib/css/react-big-calendar.css"
+
+const localizer = momentLocalizer(moment)
 
 export const getServerSideProps = async ({ locale }: { locale: string }) => {
   const data = await client.get({
@@ -188,7 +200,74 @@ const Home: NextPage<Props> = ({ schedules }) => {
                   </div>
                 </div>
                 <div>
-                  <FullCalendar
+                  <div>
+                    <div>
+                      <Calendar
+                        formats={{
+                          timeGutterFormat: "HH:mm",
+                        }}
+                        localizer={localizer}
+                        views={["month", "week", "day"]}
+                        defaultView="month"
+                        messages={{
+                          next: ">",
+                          previous: "<",
+                          today: lang === "en" ? "Today" : "今日",
+                          month: lang === "en" ? "Month" : "月",
+                          week: lang === "en" ? "Week" : "週",
+                          day: lang === "en" ? "Day" : "日",
+                        }}
+                        eventPropGetter={() => {
+                          let style = {
+                            backgroundColor: "#c21244",
+                            fontSize: "14px",
+                            border: "none",
+                          }
+                          return {
+                            style,
+                          }
+                        }}
+                        toolbar
+                        culture={lang === "en" ? "en-US" : "ja"}
+                        events={
+                          schedules && !!schedules.length
+                            ? schedules.map((schedule) => {
+                                if (
+                                  (!schedule.start_date &&
+                                    !schedule.start_time) ||
+                                  (!schedule.end_date && !schedule.end_time)
+                                ) {
+                                  return []
+                                }
+
+                                return {
+                                  title: schedule.title
+                                    ? lang === "en"
+                                      ? schedule.title_en
+                                      : schedule.title
+                                    : "Open",
+
+                                  allDay:
+                                    !!schedule.start_date &&
+                                    !schedule.start_time,
+                                  start: schedule.start_date
+                                    ? new Date(schedule.start_date)
+                                    : new Date(schedule.start_time as string)
+                                    ? new Date(schedule.start_time as string)
+                                    : undefined,
+                                  end: schedule.end_date
+                                    ? new Date(schedule.end_date as string)
+                                    : new Date(schedule.end_time as string)
+                                    ? new Date(schedule.end_time as string)
+                                    : undefined,
+                                }
+                              })
+                            : []
+                        }
+                      />
+                    </div>
+                  </div>
+                  {/* <FullCalendar
                     allDayText={lang === "en" ? "All-day" : "日中"}
                     plugins={[dayGridPlugin, timeGridPlugin]}
                     locale={lang}
@@ -227,7 +306,7 @@ const Home: NextPage<Props> = ({ schedules }) => {
                       right: "dayGridMonth,timeGridWeek,timeGridDay",
                     }}
                     initialView="dayGridMonth"
-                  />
+                  /> */}
                 </div>
               </div>
             </div>
