@@ -3,8 +3,6 @@ import type { AppProps } from "next/app"
 import { Noto_Sans_JP } from "next/font/google"
 import Script from "next/script"
 import { appWithTranslation } from "next-i18next"
-import { GoogleTagManager, GoogleTagManagerId } from "@/components/seo/GTM"
-import { googleTagManagerId } from "@/utils/gtm"
 
 const noto = Noto_Sans_JP({
   subsets: ["latin"],
@@ -15,9 +13,6 @@ const noto = Noto_Sans_JP({
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
-      <GoogleTagManager
-        googleTagManagerId={googleTagManagerId as GoogleTagManagerId}
-      />
       <Script id="adobe-font">
         {`
    (function(d) {
