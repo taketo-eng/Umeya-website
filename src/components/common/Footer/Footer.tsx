@@ -11,7 +11,7 @@ export const Footer = () => {
             className="text-xs font-medium text-center md:text-left"
             suppressHydrationWarning
           >
-            ©2023 {t("info.umeya_name")} All rights reserved.{" "}
+            ©2023 {t("info.name")} All rights reserved.{" "}
             <br className="md:hidden" />
             Operated by{" "}
             <a
