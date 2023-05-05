@@ -1,4 +1,3 @@
-import { googleTagManagerId } from "@/utils/gtm"
 import { Html, Head, Main, NextScript } from "next/document"
 
 export default function Document() {
@@ -11,7 +10,7 @@ export default function Document() {
         <noscript
           dangerouslySetInnerHTML={{
             __html: `
-          <iframe src="https://www.googletagmanager.com/ns.html?id=${googleTagManagerId}"
+          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5F7QWL8"
           height="0" width="0" style="display:none;visibility:hidden"></iframe>
           `,
           }}
