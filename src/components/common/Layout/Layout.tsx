@@ -16,7 +16,6 @@ export const Layout: FC<Props> = ({ children }) => {
 
   return (
     <>
-      <SeoHead />
       <Script id="preload" strategy="lazyOnload">
         {`
           const wrapper = document.querySelector(".top_wrapper")

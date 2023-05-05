@@ -1,5 +1,4 @@
 import Head from "next/head"
-import Script from "next/script"
 import { useTranslation } from "react-i18next"
 
 export const SeoHead = () => {
@@ -40,23 +39,6 @@ export const SeoHead = () => {
 
         <meta name="robots" content="index,follow" />
       </Head>
-      <Script type="application/ld+json" id="structerd_data">{`
-      {
-        "@context": "http://schema.org",
-        "@type": "LocalBusiness",
-        "name": "梅屋",
-        "image": "https://umeya.life/logo.png",
-        "url": "https://umeya.life",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "黒木町黒木37",
-            "addressLocality": "八女市",
-            "addressRegion": "福岡県",
-            "postalCode": "834-1292",
-            "addressCountry": "JP"
-        }
-      }
-      `}</Script>
     </>
   )
 }
