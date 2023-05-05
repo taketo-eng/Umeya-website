@@ -1,4 +1,3 @@
-import { GoogleTagManager, GoogleTagManagerId } from "@/components/seo/GTM"
 import { googleTagManagerId } from "@/utils/gtm"
 import { Html, Head, Main, NextScript } from "next/document"
 
@@ -7,9 +6,6 @@ export default function Document() {
     <Html>
       <Head>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <GoogleTagManager
-          googleTagManagerId={googleTagManagerId as GoogleTagManagerId}
-        />
       </Head>
       <body>
         <noscript
