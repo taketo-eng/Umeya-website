@@ -5,7 +5,7 @@ export const GoogleTagManager: FC = () => {
   return (
     <Script
       id="gtm"
-      strategy="afterInteractive"
+      strategy="worker"
       dangerouslySetInnerHTML={{
         __html: `
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

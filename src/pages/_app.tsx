@@ -32,7 +32,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         }
       }
       `}</Script>
-      <Script id="adobe-font">
+      <Script strategy="worker" id="adobe-font">
         {`
    (function(d) {
     var config = {
