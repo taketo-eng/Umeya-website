@@ -4,7 +4,6 @@ import { Noto_Sans_JP } from "next/font/google"
 import Script from "next/script"
 import { appWithTranslation } from "next-i18next"
 import { GoogleTagManager } from "@/components/seo/GTM"
-import { SeoHead } from "@/components/common/SeoHead"
 
 const noto = Noto_Sans_JP({
   subsets: ["latin"],
@@ -15,7 +14,6 @@ const noto = Noto_Sans_JP({
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
-      <SeoHead />
       <GoogleTagManager />
       <Script type="application/ld+json" id="structerd_data">{`
       {
