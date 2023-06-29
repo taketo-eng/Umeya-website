@@ -14,5 +14,5 @@ microCMS
 
 ## リンク
 
-日本語ページは[こちら](https://umeya.life/)
+日本語ページは[こちら](https://umeya.life/)  
 English page is [here](https://umeya.life/en)
