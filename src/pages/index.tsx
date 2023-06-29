@@ -213,46 +213,6 @@ const Home: NextPage<Props> = ({ schedules }) => {
                                             />
                                         </div>
                                     </div>
-                                    {/* <FullCalendar
-                    allDayText={lang === "en" ? "All-day" : "日中"}
-                    plugins={[dayGridPlugin, timeGridPlugin]}
-                    locale={lang}
-                    lazyFetching
-                    events={
-                      schedules && !!schedules.length
-                        ? schedules.map((schedule) => {
-                            if (!schedule.start_date && !schedule.start_time)
-                              return []
-                            return {
-                              title: schedule.title
-                                ? lang === "en"
-                                  ? schedule.title_en
-                                  : schedule.title
-                                : "Open",
-
-                              allDay:
-                                !!schedule.start_date && !schedule.start_time,
-                              start: schedule.start_date
-                                ? schedule.start_date
-                                : schedule.start_time
-                                ? schedule.start_time
-                                : undefined,
-                              end: schedule.end_date
-                                ? schedule.end_date
-                                : schedule.end_time
-                                ? schedule.end_time
-                                : undefined,
-                            }
-                          })
-                        : []
-                    }
-                    headerToolbar={{
-                      left: "prev,next",
-                      center: "title",
-                      right: "dayGridMonth,timeGridWeek,timeGridDay",
-                    }}
-                    initialView="dayGridMonth"
-                  /> */}
                                 </div>
                             </div>
                         </div>
