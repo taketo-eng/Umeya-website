@@ -16,3 +16,6 @@ microCMS
 
 日本語ページは[こちら](https://umeya.life/)  
 English page is [here](https://umeya.life/en)
+
+
+![web-image](https://github.com/taketo-eng/Umeya-website/assets/61618401/73bcdaa4-11db-4fa6-a9c8-006d149ce9d2)
