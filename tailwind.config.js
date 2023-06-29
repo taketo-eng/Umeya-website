@@ -1,14 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 
-const plugin = require("tailwindcss/plugin");
-const { fontFamily } = require("tailwindcss/defaultTheme");
+const plugin = require("tailwindcss/plugin")
+const { fontFamily } = require("tailwindcss/defaultTheme")
 
 module.exports = {
-    content: [
-        "./src/pages/**/*.{js,ts,jsx,tsx}",
-        "./src/components/**/*.{js,ts,jsx,tsx}",
-        "./src/app/**/*.{js,ts,jsx,tsx}",
-    ],
+    content: ["./src/pages/**/*.{js,ts,jsx,tsx}", "./src/components/**/*.{js,ts,jsx,tsx}", "./src/app/**/*.{js,ts,jsx,tsx}"],
     theme: {
         screen: {
             xs: "350px",
@@ -22,10 +18,6 @@ module.exports = {
                 noto: ["var(--font-noto)", ...fontFamily.sans],
                 rock: ["rocknroll-one", ...fontFamily.sans],
             },
-            // backgroundImage: {
-            //   "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-            //   "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-            // },
             colors: {
                 main: "#c21244",
                 text: "#333",
@@ -50,7 +42,7 @@ module.exports = {
                     }),
                 },
                 { value: theme("clipPath") }
-            );
+            )
         }),
     ],
-};
+}
