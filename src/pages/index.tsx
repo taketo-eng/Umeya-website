@@ -4,13 +4,15 @@ import styles from "@/styles/common.module.scss"
 import Image from "next/image"
 import { client } from "@/libs/microcms"
 import { NextPage } from "next"
-import { Schedule } from "@/types/common"
+import { InstagramPost, Schedule } from "@/types/common"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useTranslation } from "next-i18next"
 import { Calendar, momentLocalizer } from "react-big-calendar"
 import moment from "moment"
 require("moment/locale/ja.js")
 import "react-big-calendar/lib/css/react-big-calendar.css"
+import { useEffect, useState } from "react"
+import { getInstagramPosts } from "@/libs/instagram"
 
 const localizer = momentLocalizer(moment)
 
@@ -30,9 +32,21 @@ type Props = {
     schedules: Schedule[]
 }
 
+const NUM_OF_POST = 12
+
 const Home: NextPage<Props> = ({ schedules }) => {
     const { t, i18n } = useTranslation("common")
+    const [instagramData, setInstagramData] = useState<InstagramPost[] | null>(null)
     const lang = i18n.language
+    let count = 0
+    useEffect(() => {
+        const instagram = async () => {
+            const res: InstagramPost[] = await getInstagramPosts()
+            setInstagramData(res)
+        }
+        instagram()
+    }, [])
+
     return (
         <Layout>
             <div className="keyvisual">
@@ -216,6 +230,44 @@ const Home: NextPage<Props> = ({ schedules }) => {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+            <section id="access" className="pb-16 pt-8 md:pb-20 md:pt-10">
+                <div className="w-base max-w-7xl mx-auto">
+                    <MainTitle isAnim title={t("insta_feed.title")} titleEn="Instagram" />
+                    <div className="md:px-4 px-0">
+                        {instagramData && (
+                            <ul className="flex flex-wrap justify-between">
+                                {instagramData.map((postData, idx) => {
+                                    if (count < NUM_OF_POST && postData.media_url) {
+                                        count++
+
+                                        return (
+                                            <li className="w-1/2 transition-opacity duration-300 hover:opacity-80 md:w-1/4" key={postData.id}>
+                                                <a href={postData.permalink} target="_blank" rel="noopener noreferrer">
+                                                    <div className="w-full">
+                                                        {postData.media_type == "VIDEO" ? (
+                                                            <div className="relative h-0 w-full overflow-hidden pt-[100%]">
+                                                                <video className="absolute left-0 right-0 top-0 bottom-0 block h-full w-full  object-cover" src={postData.media_url}></video>
+                                                            </div>
+                                                        ) : (
+                                                            <div className="relative h-0 w-full overflow-hidden pt-[100%]">
+                                                                <img
+                                                                    className=" absolute left-0 right-0 top-0 bottom-0 block h-full w-full object-cover"
+                                                                    src={postData.media_url}
+                                                                    alt={postData.caption}
+                                                                />
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        )
+                                    }
+                                })}
+                            </ul>
+                        )}
                     </div>
                 </div>
             </section>
