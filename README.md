@@ -10,7 +10,11 @@ Next.js
 
 ## 導入 CMS
 
-microCMS
+microCMS  
+
+## SNS feed
+
+Instagram Graph API  
 
 ## リンク
 
