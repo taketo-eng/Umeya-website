@@ -19,7 +19,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       {
         "@context": "http://schema.org",
         "@type": "LocalBusiness",
-        "name": "梅屋",
+        "name": "古民家梅屋",
         "image": "https://umeya.life/logo.png",
         "url": "https://umeya.life",
         "address": {
@@ -32,6 +32,17 @@ const App = ({ Component, pageProps }: AppProps) => {
         }
       }
       `}</Script>
+
+      <Script type="application/ld+json" id="structerd_data_2">{`
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "name": "古民家梅屋",
+        "url": "https://umeya.life",
+        "alternateName": "梅屋"
+      }
+      `}</Script>
+
       <Script strategy="worker" id="adobe-font">
         {`
    (function(d) {
