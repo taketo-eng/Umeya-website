@@ -6,6 +6,8 @@ import Script from "next/script"
 import Link from "next/link"
 import Image from "next/image"
 import { SeoHead } from "../../seo/SeoHead"
+import { useTranslation } from "react-i18next"
+import { EnSeoHead } from "@/components/seo/EnSeoHead"
 
 type Props = {
     children: ReactNode
@@ -13,10 +15,11 @@ type Props = {
 
 export const Layout: FC<Props> = ({ children }) => {
     const ref = useRef(null)
-
+    const { i18n } = useTranslation("common")
+    const lang = i18n.language
     return (
         <>
-            <SeoHead />
+            {lang == "en" ? <EnSeoHead /> : <SeoHead />}
             <Script id="preload" strategy="lazyOnload">
                 {`
           const wrapper = document.querySelector(".top_wrapper")

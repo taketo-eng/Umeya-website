@@ -1,0 +1,1 @@
+export { EnSeoHead } from "./EnSeoHead"
