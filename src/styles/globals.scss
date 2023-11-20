@@ -3,276 +3,188 @@
 @tailwind utilities;
 
 :root {
-    --main: #c21244;
+  --main: #c21244;
 }
 
 ::selection {
-    background: var(--main);
-    color: #fff;
+  background: var(--main);
+  color: #fff;
 }
 
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 70px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
 }
 
 .bg_wrapper {
-    position: fixed;
-    inset: 0;
+  position: fixed;
+  inset: 0;
+  display: block;
+  z-index: -1;
+  background-image: url("/paper.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  &::after {
+    content: "";
     display: block;
-    z-index: -1;
-    background-image: url("/paper.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.6;
-    &::after {
-        content: "";
-        display: block;
-        inset: 0;
-        position: absolute;
-        background-color: rgba(194, 18, 68, 0.03);
-    }
+    inset: 0;
+    position: absolute;
+    background-color: rgba(194, 18, 68, 0.03);
+  }
 }
 
 img {
-    vertical-align: bottom;
-    max-width: 100%;
+  vertical-align: bottom;
+  max-width: 100%;
 }
 
 a {
-    color: inherit;
+  color: inherit;
 }
 
 .keyvisual {
-    position: relative;
-    &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        inset: 0;
-        background-color: #000;
-        opacity: 0.15;
+  position: relative;
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    background-color: #000;
+    opacity: 0.15;
+  }
+
+  .catch {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      writing-mode: vertical-rl;
+      color: #fff;
+
+      font-size: 36px;
+      font-weight: bold;
+      text-shadow: 0 0 10px var(--main);
     }
 
-    .catch {
-        position: absolute;
-        z-index: 1;
-        inset: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    &.en {
+      p {
+        writing-mode: horizontal-tb;
+      }
+    }
 
+    @media screen and (max-width: 767px) {
+      p {
+        font-size: 30px;
+        translate: 50% 0;
+      }
+
+      &.en {
         p {
-            writing-mode: vertical-rl;
-            opacity: 0;
-            animation: fadein 0.6s forwards;
-            animation-delay: 0.4s;
-            color: #fff;
-
-            font-size: 36px;
-            font-weight: bold;
-            text-shadow: 0 0 10px var(--main);
+          max-width: calc(100% - 32px);
+          margin: 0 auto;
+          translate: 0 0;
+          font-size: 25px;
         }
-
-        &.en {
-            p {
-                writing-mode: horizontal-tb;
-            }
-        }
-
-        @media screen and (max-width: 767px) {
-            p {
-                font-size: 30px;
-                translate: 50% 0;
-            }
-
-            &.en {
-                p {
-                    max-width: calc(100% - 32px);
-                    margin: 0 auto;
-                    translate: 0 0;
-                    font-size: 25px;
-                }
-            }
-        }
+      }
     }
-}
-
-@keyframes fadein {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-.open_anim {
-    position: relative;
-
-    &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        inset: 0;
-        background-color: var(--main);
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        border-radius: 15px;
-        transition: clip-path 0.6s;
-    }
-    &.is-inview {
-        &::after {
-            clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-        }
-    }
-}
-
-.fadein_anim {
-    position: relative;
-    opacity: 0;
-    translate: 0 40px;
-
-    transition: translate 0.6s, opacity 0.6s;
-
-    &.is-inview {
-        opacity: 1;
-        translate: 0 0;
-    }
-}
-
-.title_anim {
-    & > span {
-        &:first-of-type {
-            span {
-                opacity: 0;
-                transition: opacity 0.4s;
-                @for $i from 1 through str-length(attr(data-titleen)) {
-                    &:nth-of-type(#{$i}) {
-                        transition-delay: ($i - 1) * 0.1s;
-                    }
-                }
-            }
-        }
-        &:last-of-type {
-            span {
-                opacity: 0;
-                transition: opacity 0.4s;
-                @for $i from 1 through str-length(attr(data-title)) {
-                    &:nth-of-type(#{$i}) {
-                        transition-delay: ($i - 1) * 0.1s;
-                    }
-                }
-            }
-        }
-    }
-
-    &.is-inview {
-        & > span {
-            &:first-of-type {
-                span {
-                    opacity: 1;
-                }
-            }
-            &:last-of-type {
-                span {
-                    opacity: 1;
-                }
-            }
-        }
-    }
+  }
 }
 
 .preload * {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -ms-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
 }
 
 .ripple {
-    &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        inset: 0;
-        background-color: var(--main);
-        z-index: -1;
-        border-radius: 6px;
-        scale: 1;
-        transition: scale 0s, opacity 0s;
-    }
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    background-color: var(--main);
+    z-index: -1;
+    border-radius: 6px;
+    scale: 1;
+    transition: scale 0s, opacity 0s;
+  }
 
-    &:hover {
-        &::before {
-            scale: 1.2;
-            opacity: 0;
-            transition: scale 0.3s ease-in-out, opacity 0.5s;
-        }
+  &:hover {
+    &::before {
+      scale: 1.2;
+      opacity: 0;
+      transition: scale 0.3s ease-in-out, opacity 0.5s;
     }
+  }
 }
 
 .rbc-time-header {
-    @media screen and (max-width: 767px) {
-        margin-right: 0 !important;
-    }
+  @media screen and (max-width: 767px) {
+    margin-right: 0 !important;
+  }
 }
 
 .rbc-toolbar {
-    .rbc-toolbar-label {
-        color: var(--main);
-        font-weight: bold;
-        font-size: 16px !important;
+  .rbc-toolbar-label {
+    color: var(--main);
+    font-weight: bold;
+    font-size: 16px !important;
 
-        @media screen and (max-width: 767px) {
-            font-size: 14px !important;
-        }
+    @media screen and (max-width: 767px) {
+      font-size: 14px !important;
     }
-    button {
-        font-weight: 500 !important;
-        font-size: 15px !important;
-        padding: 3px 6px !important;
-        border-color: var(--main) !important;
-        color: var(--main) !important;
-        background-color: #fff !important;
+  }
+  button {
+    font-weight: 500 !important;
+    font-size: 15px !important;
+    padding: 3px 6px !important;
+    border-color: var(--main) !important;
+    color: var(--main) !important;
+    background-color: #fff !important;
 
-        @media screen and (max-width: 767px) {
-            font-size: 14px !important;
-        }
-
-        &.rbc-active {
-            color: #fff !important;
-            background-color: var(--main) !important;
-        }
+    @media screen and (max-width: 767px) {
+      font-size: 14px !important;
     }
+
+    &.rbc-active {
+      color: #fff !important;
+      background-color: var(--main) !important;
+    }
+  }
 }
 
 .rbc-time-slot {
-    .rbc-label {
-        font-size: 12px;
-    }
+  .rbc-label {
+    font-size: 12px;
+  }
 }
 
 .rbc-month-view {
-    background-color: #fff;
+  background-color: #fff;
 }
 .rbc-day-view {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .rbc-time-view {
-    background-color: #fff;
+  background-color: #fff;
 
-    @media screen and (max-width: 767px) {
-        .rbc-row {
-            min-height: unset !important;
+  @media screen and (max-width: 767px) {
+    .rbc-row {
+      min-height: unset !important;
 
-            .rbc-header {
-                white-space: unset !important;
-                flex: unset !important;
-            }
-        }
+      .rbc-header {
+        white-space: unset !important;
+        flex: unset !important;
+      }
     }
+  }
 }
