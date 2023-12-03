@@ -1,12 +1,10 @@
 import { MainTitle } from "@/components/parts/MainTitle"
-import { Layout } from "@/components/common/Layout/Layout"
 import styles from "@/styles/common.module.scss"
 import Image from "next/image"
 import { client } from "@/libs/microcms"
-import { NextPage } from "next"
 import { InstagramPost, Schedule } from "@/types/common"
-import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import { useTranslation } from "next-i18next"
+//import { serverSideTranslations } from "next-i18next/serverSideTranslations"
+//import { useTranslation } from "next-i18next"
 import { Calendar, momentLocalizer } from "react-big-calendar"
 import moment from "moment"
 require("moment/locale/ja.js")
@@ -16,39 +14,43 @@ import { FadeInUp } from "@/components/animations/FadeInUp"
 import { FadeIn } from "@/components/animations/FadeIn/FadeIn"
 import { VeilOpen } from "@/components/animations/VeilOpen/VeilOpen"
 
-const localizer = momentLocalizer(moment)
+import { getI18n, getCurrentLocale } from "@/locales/server"
 
-export const getServerSideProps = async ({ locale }: { locale: string }) => {
-  const data = await client.get({
-    endpoint: "schedule",
-  })
+//const localizer = momentLocalizer(moment)
 
-  const instagramData = await getInstagramPosts();
+// export const getServerSideProps = async ({ locale }: { locale: string }) => {
+//   const data = await client.get({
+//     endpoint: "schedule",
+//   })
 
-  return {
-    props: {
-      schedules: data.schedules,
-      instagramData,
-      ...(await serverSideTranslations(locale, ["common", "seo"])),
-    },
-  }
-}
+//   const instagramData = await getInstagramPosts();
 
-type Props = {
-  schedules: Schedule[]
-  instagramData: InstagramPost[]
-}
+//   return {
+//     props: {
+//       schedules: data.schedules,
+//       instagramData,
+//       ...(await serverSideTranslations(locale, ["common", "seo"])),
+//     },
+//   }
+// }
 
 const NUM_OF_POST = 12
 
-const Home: NextPage<Props> = ({ schedules, instagramData }) => {
-  const { t, i18n } = useTranslation("common")
+const Home = async () => {
+  //const { t, i18n } = useTranslation("common")
+  const t = await getI18n()
+  const lang = getCurrentLocale()
 
-  const lang = i18n.language
   let count = 0
 
+  const scheduleData = await client.get({
+    endpoint: "schedule",
+  })
+  const schedules: Schedule[] = scheduleData.data
+  const instagramData: InstagramPost[] = await getInstagramPosts()
+
   return (
-    <Layout>
+    <>
       <div className="keyvisual">
         <picture>
           <source media="(max-width:767px)" width="500" height="800" srcSet="kv_sp.webp" />
@@ -181,7 +183,7 @@ const Home: NextPage<Props> = ({ schedules, instagramData }) => {
                 <div>
                   <div>
                     <div>
-                      <Calendar
+                      {/* <Calendar
                         formats={{
                           timeGutterFormat: "HH:mm",
                         }}
@@ -225,7 +227,7 @@ const Home: NextPage<Props> = ({ schedules, instagramData }) => {
                               })
                             : []
                         }
-                      />
+                      /> */}
                     </div>
                   </div>
                 </div>
@@ -268,7 +270,7 @@ const Home: NextPage<Props> = ({ schedules, instagramData }) => {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }
 

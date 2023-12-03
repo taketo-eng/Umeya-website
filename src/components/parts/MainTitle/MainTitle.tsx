@@ -1,3 +1,5 @@
+'use client'
+
 import { FC, useEffect, useRef } from "react"
 import styles from "./MainTitle.module.scss"
 import { FadeInText } from "@/components/animations/FadeInText/FadeInText"
