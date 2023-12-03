@@ -11,7 +11,6 @@ import { Calendar, momentLocalizer } from "react-big-calendar"
 import moment from "moment"
 require("moment/locale/ja.js")
 import "react-big-calendar/lib/css/react-big-calendar.css"
-import { useEffect, useState } from "react"
 import { getInstagramPosts } from "@/libs/instagram"
 import { FadeInUp } from "@/components/animations/FadeInUp"
 import { FadeIn } from "@/components/animations/FadeIn/FadeIn"
@@ -23,9 +22,13 @@ export const getServerSideProps = async ({ locale }: { locale: string }) => {
   const data = await client.get({
     endpoint: "schedule",
   })
+
+  const instagramData = await getInstagramPosts();
+
   return {
     props: {
       schedules: data.schedules,
+      instagramData,
       ...(await serverSideTranslations(locale, ["common", "seo"])),
     },
   }
@@ -33,22 +36,16 @@ export const getServerSideProps = async ({ locale }: { locale: string }) => {
 
 type Props = {
   schedules: Schedule[]
+  instagramData: InstagramPost[]
 }
 
 const NUM_OF_POST = 12
 
-const Home: NextPage<Props> = ({ schedules }) => {
+const Home: NextPage<Props> = ({ schedules, instagramData }) => {
   const { t, i18n } = useTranslation("common")
-  const [instagramData, setInstagramData] = useState<InstagramPost[] | null>(null)
+
   const lang = i18n.language
   let count = 0
-  useEffect(() => {
-    const instagram = async () => {
-      const res: InstagramPost[] = await getInstagramPosts()
-      setInstagramData(res)
-    }
-    instagram()
-  }, [])
 
   return (
     <Layout>
