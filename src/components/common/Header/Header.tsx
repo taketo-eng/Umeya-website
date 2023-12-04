@@ -1,13 +1,18 @@
 "use client"
 import Image from "next/image"
 import styles from "./Header.module.scss"
-import { FC, useState } from "react"
+import { FC, useRef, useState } from "react"
 import Link from "next/link"
 import { useChangeLocale, useCurrentLocale } from "@/locales/client"
 import clsx from "clsx"
+import gsap from "@/libs/gsap"
+
+const DURATION = 0.4
 
 export const Header: FC = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const navBg = useRef(null)
+  const nav = useRef(null)
 
   const locale = useCurrentLocale()
   const changeLocale = useChangeLocale()
@@ -15,10 +20,48 @@ export const Header: FC = () => {
   const toggle = () => {
     const newState = !isOpen
     setIsOpen(newState)
+    toggleAnim(newState)
   }
 
   const close = () => {
     setIsOpen(false)
+    toggleAnim(false)
+  }
+
+  const toggleAnim = (newState: boolean) => {
+    if (navBg.current) {
+      if (newState) {
+        gsap.to(navBg.current, {
+          scale: 1,
+          pointerEvents: "auto",
+          duration: DURATION,
+        })
+      } else {
+        gsap.to(navBg.current, {
+          scale: 0,
+          pointerEvents: "none",
+          duration: DURATION,
+          delay: DURATION,
+        })
+      }
+    }
+
+    if (nav.current) {
+      if (newState) {
+        gsap.to(nav.current, {
+          opacity: 1,
+          pointerEvents: "auto",
+          duration: DURATION,
+          delay: DURATION,
+        })
+      } else {
+        gsap.to(nav.current, {
+          opacity: 0,
+          pointerEvents: "none",
+          duration: DURATION,
+        })
+      }
+    }
   }
 
   const changeLang = () => {
@@ -42,8 +85,8 @@ export const Header: FC = () => {
           <span></span>
         </div>
       </div>
-      <div className={clsx(styles.nav_bg, isOpen && styles.active)}></div>
-      <nav className={clsx(styles.nav, isOpen && styles.active)}>
+      <div ref={navBg} className={styles.nav_bg}></div>
+      <nav ref={nav} className={styles.nav}>
         <ul>
           <li>
             <Link scroll={true} onClick={close} href="#top">
