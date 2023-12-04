@@ -9,6 +9,7 @@ require("moment/locale/ja.js")
 type Props = {
   schedules: Schedule[]
 }
+
 const localizer = momentLocalizer(moment)
 export const ScheduleCalendar: FC<Props> = ({ schedules }) => {
   const lang = useCurrentLocale()
