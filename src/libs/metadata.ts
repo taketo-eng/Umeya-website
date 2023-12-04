@@ -7,6 +7,14 @@ export const getMetadata = (lang: "ja" | "en"): Metadata => {
         url: "/apple-touch-icon.png",
       },
     },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
     title: lang == "ja" ? "古民家梅屋 | 八女市黒木町" : "Umeya | Traditional Japanese House in Kurogi Town, Yame City",
     description:
       lang == "ja"

@@ -15,7 +15,7 @@ import { Metadata, ResolvingMetadata } from "next"
 import { getMetadata } from "@/libs/metadata"
 import { InstagramGallery } from "@/components/parts/InstagramGallery"
 
-export async function generateMetadata(parent: ResolvingMetadata): Promise<Metadata> {
+export function generateMetadata(): Metadata {
   const lang = getCurrentLocale()
   return getMetadata(lang)
 }
