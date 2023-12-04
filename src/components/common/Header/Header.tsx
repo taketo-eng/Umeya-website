@@ -4,6 +4,7 @@ import styles from "./Header.module.scss"
 import { FC, useState } from "react"
 import Link from "next/link"
 import { useChangeLocale, useCurrentLocale } from "@/locales/client"
+import clsx from "clsx"
 
 export const Header: FC = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -12,7 +13,8 @@ export const Header: FC = () => {
   const changeLocale = useChangeLocale()
 
   const toggle = () => {
-    setIsOpen(!isOpen)
+    const newState = !isOpen
+    setIsOpen(newState)
   }
 
   const close = () => {
@@ -33,38 +35,38 @@ export const Header: FC = () => {
           </Link>
         </h1>
       </div>
-      <div onClick={toggle} className={`${styles.nav_icon} ${isOpen ? styles.active : ""}`}>
+      <div onClick={toggle} className={clsx(styles.nav_icon, isOpen && styles.active)}>
         <div>
           <span></span>
           <span></span>
           <span></span>
         </div>
       </div>
-      <div className={`${styles.nav_bg} ${isOpen ? styles.active : ""}`}></div>
-      <nav className={`${styles.nav} ${isOpen ? styles.active : ""}`}>
+      <div className={clsx(styles.nav_bg, isOpen && styles.active)}></div>
+      <nav className={clsx(styles.nav, isOpen && styles.active)}>
         <ul>
           <li>
-            <Link scroll={false} onClick={close} href="#top">
+            <Link scroll={true} onClick={close} href="#top">
               TOP
             </Link>
           </li>
           <li>
-            <Link scroll={false} onClick={close} href="#about">
+            <Link scroll={true} onClick={close} href="#about">
               About
             </Link>
           </li>
           <li>
-            <Link scroll={false} onClick={close} href="#history">
+            <Link scroll={true} onClick={close} href="#history">
               History
             </Link>
           </li>
           <li>
-            <Link scroll={false} onClick={close} href="#background">
+            <Link scroll={true} onClick={close} href="#background">
               Background
             </Link>
           </li>
           <li>
-            <Link scroll={false} onClick={close} href="#access">
+            <Link scroll={true} onClick={close} href="#access">
               Access & Schedule
             </Link>
           </li>

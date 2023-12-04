@@ -1,17 +1,18 @@
-import { MainTitle } from "@/components/parts/MainTitle"
 import styles from "@/styles/common.module.scss"
+import { Metadata } from "next"
 import Image from "next/image"
+import clsx from "clsx"
+
+import { getI18n, getCurrentLocale } from "@/locales/server"
+
 import { client } from "@/libs/microcms"
 import { Schedule } from "@/types/common"
 import "react-big-calendar/lib/css/react-big-calendar.css"
+import { MainTitle } from "@/components/parts/MainTitle"
 import { FadeInUp } from "@/components/animations/FadeInUp"
 import { FadeIn } from "@/components/animations/FadeIn/FadeIn"
 import { VeilOpen } from "@/components/animations/VeilOpen/VeilOpen"
-
-import { getI18n, getCurrentLocale } from "@/locales/server"
 import { ScheduleCalendar } from "@/components/parts/ScheduleCalendar"
-import clsx from "clsx"
-import { Metadata, ResolvingMetadata } from "next"
 import { getMetadata } from "@/libs/metadata"
 import { InstagramGallery } from "@/components/parts/InstagramGallery"
 

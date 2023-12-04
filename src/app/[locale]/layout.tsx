@@ -29,19 +29,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <StructuredData />
         <AdobeFonts />
         <div className={`${noto.variable} font-sans overflow-hidden`}>
-          <Script id="preload" strategy="lazyOnload">
-            {`
-              const wrapper = document.querySelector(".top_wrapper")
-              wrapper.classList.remove("preload")
-            `}
-          </Script>
           <div className="bg_wrapper"></div>
-          <div className="preload top_wrapper" id="top">
+          <div id="top">
             <Header />
             <main className="font-noto">{children}</main>
             {/* @ts-expect-error Async Server Component */}
             <Footer />
-            <Link scroll={false} className="ripple fixed right-4 bottom-4 w-8 md:w-10" href="#top">
+            <Link scroll={true} className="ripple fixed right-4 bottom-4 w-8 md:w-10" href="#top">
               <Image className="w-full" src="/top_btn.svg" width={32} height={32} alt="top" />
             </Link>
           </div>
