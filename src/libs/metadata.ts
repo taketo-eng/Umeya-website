@@ -2,6 +2,7 @@ import { Metadata } from "next"
 
 export const getMetadata = (lang: "ja" | "en"): Metadata => {
   return {
+    metadataBase: new URL("https://umeya.life/"),
     icons: {
       apple: {
         url: "/apple-touch-icon.png",
