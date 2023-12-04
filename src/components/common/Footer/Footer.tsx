@@ -1,25 +1,17 @@
 import Link from "next/link"
-import { useTranslation } from "react-i18next"
+import { getI18n } from "@/locales/server"
 
-export const Footer = () => {
-  const { t } = useTranslation("common")
+export const Footer = async () => {
+  const t = await getI18n()
+
   return (
     <footer className="font-noto bg-main text-white py-12">
       <div className="w-base max-w-7xl mx-auto">
         <div className="flex flex-col-reverse md:flex-row justify-center items-center md:justify-between gap-6">
-          <small
-            className="text-xs font-medium text-center md:text-left"
-            suppressHydrationWarning
-          >
-            ©2023 {t("info.name")} All rights reserved.{" "}
-            <br className="md:hidden" />
+          <small className="text-xs font-medium text-center md:text-left" suppressHydrationWarning>
+            ©2023 {t("info.name")} All rights reserved. <br className="md:hidden" />
             Operated by{" "}
-            <a
-              href="https://yui-r.design"
-              target="_blank"
-              rel="noopener noreferrer"
-              suppressHydrationWarning
-            >
+            <a href="https://yui-r.design" target="_blank" rel="noopener noreferrer" suppressHydrationWarning>
               {t("info.company_name")}
             </a>
           </small>

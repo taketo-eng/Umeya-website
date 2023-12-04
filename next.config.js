@@ -2,7 +2,8 @@
 const { i18n } = require("./next-i18next.config")
 
 module.exports = {
-  i18n,
-  reactStrictMode: true,
+  //i18n,
+  //! reactStrictMode is 'false' for bug of react-big-calendar
+  reactStrictMode: false,
   experimental: { nextScriptWorkers: true },
 }
