@@ -1,10 +1,9 @@
 import Link from "next/link"
-//import { useTranslation } from "react-i18next"
 import { getI18n } from "@/locales/server"
 
 export const Footer = async () => {
   const t = await getI18n()
-  //const { t } = useTranslation("common")
+
   return (
     <footer className="font-noto bg-main text-white py-12">
       <div className="w-base max-w-7xl mx-auto">

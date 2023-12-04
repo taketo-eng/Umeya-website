@@ -1,30 +1,25 @@
-'use client'
+"use client"
 import Script from "next/script"
 import { GTM_ID, pageview } from "@/libs/gtm"
-import {usePathname, useSearchParams} from 'next/navigation'
+import { usePathname, useSearchParams } from "next/navigation"
 import { FC, useEffect } from "react"
 
 export const GoogleTagManager: FC = () => {
   const pathname = usePathname()
-  const searchParams = useSearchParams();
+  const searchParams = useSearchParams()
 
-  useEffect(()=>{
+  useEffect(() => {
     if (pathname) {
-      pageview(pathname);
+      pageview(pathname)
     }
   }, [pathname, searchParams])
 
   return (
-<>
-  <noscript>
-    <iframe
-      src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-      height="0"
-      width="0"
-      style={{ display: "none", visibility: "hidden" }}
-    />
-  </noscript>
-  <Script
+    <>
+      <noscript>
+        <iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`} height="0" width="0" style={{ display: "none", visibility: "hidden" }} />
+      </noscript>
+      <Script
         id="gtm"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
@@ -36,7 +31,7 @@ export const GoogleTagManager: FC = () => {
     })(window,document,'script','dataLayer','${GTM_ID}');
     `,
         }}
-    />
-</>
+      />
+    </>
   )
 }

@@ -218,10 +218,10 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
-"@types/react-big-calendar@^1.6.3":
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/@types/react-big-calendar/-/react-big-calendar-1.6.3.tgz#349cdb56fd3f6c7cb1560a4feae2155892622661"
-  integrity sha512-qZXuwkroQGiybj4C67f95Q9ogRuhkli5Lh0aS0yCKMeOMO6ox9nzUFOaxJWRtyDSAN59Ye+OY/awrUWjM0HAbA==
+"@types/react-big-calendar@^1.8.5":
+  version "1.8.5"
+  resolved "https://registry.yarnpkg.com/@types/react-big-calendar/-/react-big-calendar-1.8.5.tgz#0f166f171d564133a1ebb61db1d5314e7d9273d6"
+  integrity sha512-+b4SlRiOeQyE8BtBwPlAMa5xVQhVEFuz3hFSjO6Gz419a0hMvMm+4eBHmvgTENRdzgBudOuIE8swE/S1gawWFw==
   dependencies:
     "@types/date-arithmetic" "*"
     "@types/prop-types" "*"
@@ -640,6 +640,11 @@ clsx@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.2.1.tgz#0ddc4a20a549b59c93a4116bb26f5294ca17dc12"
   integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
+
+clsx@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-2.0.0.tgz#12658f3fd98fafe62075595a5c30e43d18f3d00b"
+  integrity sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==
 
 color-convert@^2.0.1:
   version "2.0.1"
@@ -2435,10 +2440,10 @@ quick-lru@^5.1.1:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
 
-react-big-calendar@^1.6.9:
-  version "1.6.9"
-  resolved "https://registry.yarnpkg.com/react-big-calendar/-/react-big-calendar-1.6.9.tgz#1094d14ad73a287ca9fa729040a4e92c086587ef"
-  integrity sha512-yuRZGUtg7txy8pt070dx5lN1eoun4RqXx7MTORI3lGYCwKbqhACDXzbu2CAvCw9LlwtC4GRDca68VLIQoarVCA==
+react-big-calendar@^1.8.5:
+  version "1.8.5"
+  resolved "https://registry.yarnpkg.com/react-big-calendar/-/react-big-calendar-1.8.5.tgz#fdada71f84d53ff13bc9543666b69183e91ad6a5"
+  integrity sha512-cra8WPfoTSQthFfqxi0k9xm/Shv5jWSw19LkNzpSJcnQhP6XGes/eJjd8P8g/iwaJjXIWPpg3+HB5wO5wabRyA==
   dependencies:
     "@babel/runtime" "^7.20.7"
     clsx "^1.2.1"

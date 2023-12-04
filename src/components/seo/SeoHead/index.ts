@@ -1,1 +1,0 @@
-export { SeoHead } from "./SeoHead"

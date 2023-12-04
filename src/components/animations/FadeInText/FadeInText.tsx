@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import { FC, useRef, useEffect } from "react"
 import SplitType from "split-type"
 import gsap from "@/libs/gsap"

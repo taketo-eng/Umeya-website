@@ -10,8 +10,6 @@ import { GoogleTagManager } from "@/components/seo/GTM"
 import { StructuredData } from "@/components/seo/StructuredData"
 import { Header } from "@/components/common/Header"
 import { Footer } from "@/components/common/Footer"
-import { SeoHead } from "@/components/seo/SeoHead"
-import { EnSeoHead } from "@/components/seo/EnSeoHead"
 import { getCurrentLocale } from "@/locales/server"
 
 const noto = Noto_Sans_JP({
@@ -31,7 +29,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <StructuredData />
         <AdobeFonts />
         <div className={`${noto.variable} font-sans overflow-hidden`}>
-          {locale == "en" ? <EnSeoHead /> : <SeoHead />}
           <Script id="preload" strategy="lazyOnload">
             {`
               const wrapper = document.querySelector(".top_wrapper")
