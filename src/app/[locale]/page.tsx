@@ -41,14 +41,12 @@ const Page = async () => {
           <img width="1920" height="1080" className="w-full" src="kv.webp" alt="" />
         </picture>
         <div className={`catch ${lang}`}>
-          <FadeIn>
-            <p
-              className="font-serif"
-              dangerouslySetInnerHTML={{
-                __html: t("info.catch_phrase"),
-              }}
-            />
-          </FadeIn>
+          <p
+            className="font-serif"
+            dangerouslySetInnerHTML={{
+              __html: t("info.catch_phrase"),
+            }}
+          />
         </div>
       </div>
       <section id="about" className="pt-16 pb-8 md:pt-20 md:pb-10">
