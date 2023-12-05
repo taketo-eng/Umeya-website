@@ -26,7 +26,7 @@ export const InstagramGallery = async () => {
                         </div>
                       ) : (
                         <div className="relative h-0 w-full overflow-hidden pt-[100%]">
-                          <img className=" absolute left-0 right-0 top-0 bottom-0 block h-full w-full object-cover" src={postData.media_url} alt={postData.caption} />
+                          <img loading="lazy" className=" absolute left-0 right-0 top-0 bottom-0 block h-full w-full object-cover" src={postData.media_url} alt={postData.caption} />
                         </div>
                       )}
                     </div>
