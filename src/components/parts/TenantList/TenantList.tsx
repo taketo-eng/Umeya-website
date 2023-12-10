@@ -23,13 +23,13 @@ type LinkItemProps = {
 const LinkButton: FC<LinkItemProps> = ({ locale, label, labelEn, url }) => {
   return (
     <a
-      className="hover:opacity-60 flex justify-items-center items-center gap-2 duration-300 font-medium bg-white text-center text-lg px-4 py-2 text-main border-main border rounded"
+      className="hover:opacity-60 relative md:flex md:justify-items-center md:items-center md:gap-2 duration-300 font-medium bg-white text-center text-lg px-6 md:px-4 py-2 text-main border-main border rounded"
       target="_blank"
       rel="noopener noreferrer"
       href={url}
     >
       {locale == "en" ? labelEn : label}
-      <Image className="w-3 h-3" width={30} height={30} src="/external-link.svg" alt="external-link" />
+      <Image className="absolute md:relative right-3 top-1/2 md:right-0 md:top-0 -translate-y-1/2 md:translate-y-0 !w-3 h-3" width={30} height={30} src="/external-link.svg" alt="external-link" />
     </a>
   )
 }
