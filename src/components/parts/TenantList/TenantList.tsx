@@ -43,14 +43,14 @@ const TenantItem: FC<TenantItemProps> = ({ data }) => {
   return (
     <li className="md:px-8 mb-10">
       <h3 className="text-main font-bold mb-4 border-b border-main pb-2 text-xl">{tenant_name}</h3>
-      <div className={`${styles.row} ${styles.reverse}`}>
-        <VeilOpen className={clsx(isVertical && "md:!w-1/5")}>
+      <div className={`${styles.row} ${styles.reverse} ${styles.pad_col}`}>
+        <VeilOpen className={clsx(isVertical && "md:!w-1/2 lg:!w-1/4")}>
           <Image src={data.tenant_image.url} width={data.tenant_image.width} height={data.tenant_image.height} alt={tenant_name} />
         </VeilOpen>
         <div className="w-full">
           <FadeInUp>
             <p
-              className={`${styles.text} mb-8`}
+              className={`${styles.text} ${styles.tenant_message} mb-8`}
               dangerouslySetInnerHTML={{
                 __html: nl2br(data.introduction),
               }}

@@ -1,6 +1,10 @@
 .row {
   @apply flex gap-8 items-center md:flex-row flex-col;
 
+  &.pad_col {
+    @apply flex-col lg:flex-row;
+  }
+
   & > div {
     &:first-of-type {
       @apply w-full md:w-[40%] flex-shrink-0 relative overflow-hidden;
@@ -19,6 +23,10 @@
 
   &.reverse {
     @apply flex-col md:flex-row-reverse;
+
+    &.pad_col {
+      @apply flex-col lg:flex-row-reverse;
+    }
   }
 }
 
@@ -29,6 +37,16 @@
 
   b {
     @apply text-main;
+  }
+
+  &.tenant_message {
+    b {
+      @apply text-black;
+    }
+  }
+
+  a {
+    @apply underline underline-offset-2;
   }
 }
 
