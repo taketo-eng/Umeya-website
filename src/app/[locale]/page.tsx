@@ -10,11 +10,11 @@ import { Schedule } from "@/types/common"
 import "react-big-calendar/lib/css/react-big-calendar.css"
 import { MainTitle } from "@/components/parts/MainTitle"
 import { FadeInUp } from "@/components/animations/FadeInUp"
-import { FadeIn } from "@/components/animations/FadeIn/FadeIn"
 import { VeilOpen } from "@/components/animations/VeilOpen/VeilOpen"
 import { ScheduleCalendar } from "@/components/parts/ScheduleCalendar"
 import { getMetadata } from "@/libs/metadata"
 import { InstagramGallery } from "@/components/parts/InstagramGallery"
+import { TenantSection } from "@/components/sections/TenantSection"
 
 export function generateMetadata(): Metadata {
   const lang = getCurrentLocale()
@@ -71,6 +71,8 @@ const Page = async () => {
           </div>
         </div>
       </section>
+      {/* @ts-expect-error Async Server Component */}
+      <TenantSection />
       <section id="history" className="py-8 md:py-10">
         <div className=" w-base max-w-7xl mx-auto">
           <MainTitle isAnim title={t("history.title")} titleEn="History" />
