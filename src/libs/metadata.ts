@@ -19,8 +19,8 @@ export const getMetadata = (lang: "ja" | "en"): Metadata => {
     title: lang == "ja" ? "古民家梅屋 | 八女市黒木町" : "Umeya | Traditional Japanese House in Kurogi Town, Yame City",
     description:
       lang == "ja"
-        ? "福岡県八女市黒木町にある古民家梅屋の公式ページです。梅屋は集い・繋がり・残すをテーマにし、シェアテナントやシェアオフィス、時にはギャラリーや音楽イベントなどをおこなっていく場所です。"
-        : "This is the official page of Umeya, located in Kurogi town, Yame City, Fukuoka, Japan. The theme is Gathering, Connecting, and Preserving. It is a place to share tenants, shared offices, sometimes a gallery, and music events.",
+        ? "福岡県八女市黒木町にある古民家梅屋の公式ページです。梅屋は人々と伝統をテーマにし、コーヒーや梅屋から出てきたレトロな食器を提供し、時にはギャラリーや音楽イベントなどを開催しています。"
+        : "This is the official page of Umeya, located in Kurogi Town, Yame, Fukuoka Prefecture, Japan. People and tradition are the themes at Umeya. It offers coffee and retro crockery from Umeya, and occasionally hosts galleries and music events.",
     keywords: lang == "ja" ? "梅屋,古民家,矢部川,黒木町,八女市,福岡" : "Umeya,Traditional Japanese House,Kurogi Town,Yabe River,Yame City,Fukuoka,Japan",
     alternates: {
       canonical: "/",
@@ -34,8 +34,8 @@ export const getMetadata = (lang: "ja" | "en"): Metadata => {
       title: lang == "ja" ? "古民家梅屋 | 八女市黒木町" : "Umeya",
       description:
         lang == "ja"
-          ? "福岡県八女市黒木町にある古民家梅屋の公式ページです。梅屋は集い・繋がり・残すをテーマにし、シェアテナントやシェアオフィス、時にはギャラリーや音楽イベントなどをおこなっていく場所です。"
-          : "This is the official page of Umeya, located in Kurogi town, Yame City, Fukuoka, Japan. The theme is Gathering, Connecting, and Preserving. It is a place to share tenants, shared offices, sometimes a gallery, and music events.",
+          ? "福岡県八女市黒木町にある古民家梅屋の公式ページです。梅屋は人々と伝統をテーマにし、コーヒーや梅屋から出てきたレトロな食器を提供し、時にはギャラリーや音楽イベントなどを開催しています。"
+          : "This is the official page of Umeya, located in Kurogi Town, Yame, Fukuoka Prefecture, Japan. People and tradition are the themes at Umeya. It offers coffee and retro crockery from Umeya, and occasionally hosts galleries and music events.",
       emails: "shop@umeya.life",
       siteName: lang == "ja" ? "古民家梅屋" : "Umeya",
       locale: lang == "ja" ? "ja" : "en",
@@ -56,8 +56,8 @@ export const getMetadata = (lang: "ja" | "en"): Metadata => {
       title: lang == "ja" ? "古民家梅屋" : "Umeya",
       description:
         lang == "ja"
-          ? "福岡県八女市黒木町にある古民家梅屋の公式ページです。梅屋は集い・繋がり・残すをテーマにし、シェアテナントやシェアオフィス、時にはギャラリーや音楽イベントなどをおこなっていく場所です。"
-          : "This is the official page of Umeya, located in Kurogi town, Yame City, Fukuoka, Japan. The theme is Gathering, Connecting, and Preserving. It is a place to share tenants, shared offices, sometimes a gallery, and music events.",
+          ? "福岡県八女市黒木町にある古民家梅屋の公式ページです。梅屋は人々と伝統をテーマにし、コーヒーや梅屋から出てきたレトロな食器を提供し、時にはギャラリーや音楽イベントなどを開催しています。"
+          : "This is the official page of Umeya, located in Kurogi Town, Yame, Fukuoka Prefecture, Japan. People and tradition are the themes at Umeya. It offers coffee and retro crockery from Umeya, and occasionally hosts galleries and music events.",
     },
   }
 }
