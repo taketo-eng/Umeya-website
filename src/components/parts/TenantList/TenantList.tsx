@@ -37,7 +37,8 @@ const LinkButton: FC<LinkItemProps> = ({ locale, label, labelEn, url }) => {
 const TenantItem: FC<TenantItemProps> = ({ data }) => {
   const locale = getCurrentLocale()
 
-  const tenant_name = locale == "en" ? (data.tenant_name_en ? data.tenant_name_en : data.tenant_name) : data.tenant_name
+  const tenant_name = locale == "en" && data.tenant_name_en ? data.tenant_name_en : data.tenant_name
+  const introduction = locale == "en" && data.introduction_en ? data.introduction_en : data.introduction
   const isVertical = data.tenant_image.height / data.tenant_image.width > 1
 
   return (
@@ -52,7 +53,7 @@ const TenantItem: FC<TenantItemProps> = ({ data }) => {
             <p
               className={`${styles.text} ${styles.tenant_message} mb-8`}
               dangerouslySetInnerHTML={{
-                __html: nl2br(data.introduction),
+                __html: nl2br(introduction),
               }}
             />
             <div className="flex flex-col md:flex-row gap-4">

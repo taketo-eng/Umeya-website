@@ -3,6 +3,7 @@ export type Tenant = {
   tenant_name: string
   tenant_name_en?: string
   introduction: string
+  introduction_en?: string
   tenant_image: {
     url: string
     height: number

@@ -6,7 +6,7 @@ export default {
   },
   about: {
     title: "About",
-    desc: "Umeya is a place where people <b>gather, connect, and preserve</b>. We will have shared tenants, shared offices, sometimes galleries, and music events, where people can gather and connect with each other. We want to create a place where people can feel at home, and at the same time, we want to preserve our traditions. We hope you will stop by for a moment or a side trip on your day off.",
+    desc: "<b>People and tradition</b> are the themes at Umeya. It is filled with the desire to create a place where people can gather and connect, and to preserve traditions along with it. We mainly serve coffee and retro crockery, and occasionally host galleries and music events. Please drop by for a moment or a side trip on your day off.",
   },
   tenant: {
     title: "Shops",
@@ -24,7 +24,7 @@ export default {
     },
     showa: {
       title: "Shōwa Era (25th Dec. 1926 – 7th Jan. 1989)",
-      desc: "In 1935, Umeya was extended and a detached house was built by Shinzaburo Matsunobu.",
+      desc: "In 1935, Umeya was extended and a detached house was built",
     },
   },
   background: {

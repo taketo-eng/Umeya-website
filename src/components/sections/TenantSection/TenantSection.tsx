@@ -13,7 +13,7 @@ export const TenantSection = async () => {
       <div className="w-base max-w-7xl mx-auto">
         <MainTitle isAnim title={t("tenant.title")} titleEn="Shops" />
         <div className="md:px-4 px-0">
-          <p className={`${styles.text} mb-8`}>梅屋では、小さな規模で出店していただけるようにスペースも貸し出しています。</p>
+          <p className={`${styles.text} mb-8`}>{t("tenant.desc")}</p>
           <Suspense>
             {/* @ts-expect-error Async Server Component */}
             <TenantList />
