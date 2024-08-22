@@ -14,14 +14,12 @@ export type Tenant = {
   site_url?: string
 }
 
-export type Schedule = Partial<{
+export type Schedule = {
   title: string
-  title_en: string
+  title_en?: string
   start_time: string
   end_time: string
-  start_date: string
-  end_date: string
-}>
+}
 
 export type InstagramPost = {
   id: string
