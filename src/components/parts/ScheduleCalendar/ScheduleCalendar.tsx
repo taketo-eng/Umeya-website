@@ -46,16 +46,15 @@ export const ScheduleCalendar: FC<Props> = ({ schedules }) => {
         events={
           schedules && !!schedules.length
             ? schedules.map((schedule) => {
-                if ((!schedule.start_date && !schedule.start_time) || (!schedule.end_date && !schedule.end_time)) {
+                if (!schedule.start_time || !schedule.end_time) {
                   return []
                 }
 
                 return {
                   title: schedule.title ? (lang === "en" ? schedule.title_en : schedule.title) : "Open",
 
-                  allDay: !!schedule.start_date && !schedule.start_time,
-                  start: schedule.start_date ? new Date(schedule.start_date) : new Date(schedule.start_time as string) ? new Date(schedule.start_time as string) : undefined,
-                  end: schedule.end_date ? new Date(schedule.end_date as string) : new Date(schedule.end_time as string) ? new Date(schedule.end_time as string) : undefined,
+                  start: new Date(schedule.start_time as string),
+                  end: new Date(schedule.end_time as string),
                 }
               })
             : []
