@@ -193,3 +193,30 @@ a {
     }
   }
 }
+
+
+// events swiper
+
+.swiper-button-prev, .swiper-button-next {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+  // top: unset !important;
+  // bottom: -0px;
+}
+
+.swiper-button-prev {
+  background-image: url('/prev.svg') !important;
+}
+
+.swiper-button-next {
+  background-image: url('/next.svg') !important;
+}
+
+.swiper-button-prev:after{
+  display:none !important;
+}
+
+.swiper-button-next:after{
+  display:none !important;
+}
