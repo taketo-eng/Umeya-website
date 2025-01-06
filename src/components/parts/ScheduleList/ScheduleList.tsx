@@ -10,14 +10,15 @@ import 'swiper/css/navigation'
 import { Keyboard, A11y, Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { formatStartToEnd, nl2br } from '@/helpers/converter'
+import { useCurrentLocale } from '@/locales/client'
 
 type CardProps = {
     schedule: Schedule,
-    lang: string,
     category: 'open' | 'event'
 }
 
-const Card = ({schedule, lang, category}:CardProps) => {
+const Card = ({schedule, category}:CardProps) => {
+    const lang = useCurrentLocale()
     let title = schedule.title ? schedule.title : lang == 'en' ? 'Open Day' : 'オープン日'
     if (schedule.title_en && lang == 'en') {
         title = schedule.title_en
@@ -58,7 +59,7 @@ const Card = ({schedule, lang, category}:CardProps) => {
 
 
 
-export const ScheduleList = ({schedules, lang}: {schedules: Schedule[], lang:string}) => {
+export const ScheduleList = ({schedules}: {schedules: Schedule[]}) => {
     return (
         <div className="md:px-4 px-0">
             <Swiper
@@ -83,7 +84,7 @@ export const ScheduleList = ({schedules, lang}: {schedules: Schedule[], lang:str
                     const cardColor = category === 'event' ? '!bg-main-light' : ''
                     return (
                         <SwiperSlide key={index} className={`${styles.eventCard} ${cardColor}`} >
-                            <Card schedule={schedule} lang={lang} category={category}/>
+                            <Card schedule={schedule} category={category}/>
                         </SwiperSlide>
                     )
                 })}

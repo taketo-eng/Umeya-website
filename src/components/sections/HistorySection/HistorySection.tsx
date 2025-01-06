@@ -5,21 +5,8 @@ import styles from "@/styles/common.module.scss"
 import { getCurrentLocale } from '@/locales/server'
 import { VeilOpen } from '@/components/animations/VeilOpen/VeilOpen'
 import Image from 'next/image'
-import { History } from '@/types/common'
 import { getSetting } from '@/helpers/getSetting'
-
-const HistoryItem = ({history, lang}: {history: History, lang: string}) => {
-    return (
-        <li>
-            <h3>{lang == 'en' ? history.title_en : history.title}</h3>
-            <div
-            dangerouslySetInnerHTML={{
-                __html: lang == 'en' ? history.content_en : history.content,
-            }}
-            />
-        </li>
-    )
-}
+import { HistoryItem } from '@/components/parts/HistoryItem'
 
 export const HistorySection = async () => {
     const lang = await getCurrentLocale()
@@ -40,7 +27,7 @@ export const HistorySection = async () => {
                 <div className={styles.history_container}>
                 <FadeInUp>
                     <ul className={styles.history_list}>
-                        {history_data && history_data.map((history, index) => <HistoryItem key={index} history={history} lang={lang} />)}
+                        {history_data && history_data.map((history, index) => <HistoryItem key={index} history={history} />)}
                     </ul>
                 </FadeInUp>
 

@@ -29,7 +29,7 @@ export const ScheduleEvent = async () => {
         <section id="event" className="pb-16 pt-8 md:pb-20 md:pt-10">
             <div className="w-base max-w-7xl mx-auto">
                 <MainTitle isAnim title={title} titleEn="Schedule & Event" />
-                <ScheduleList schedules={scheduleList} lang={lang} />
+                <ScheduleList schedules={scheduleList} />
             </div>
         </section>
     )
