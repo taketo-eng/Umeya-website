@@ -109,8 +109,13 @@ export const Header: FC = () => {
             </Link>
           </li>
           <li>
+            <Link scroll={true} onClick={close} href="#event">
+              Schedule & Event
+            </Link>
+          </li>
+          <li>
             <Link scroll={true} onClick={close} href="#access">
-              Access & Schedule
+              Access
             </Link>
           </li>
           <li>

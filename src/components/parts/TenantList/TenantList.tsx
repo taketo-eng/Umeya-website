@@ -34,8 +34,8 @@ const LinkButton: FC<LinkItemProps> = ({ locale, label, labelEn, url }) => {
   )
 }
 
-const TenantItem: FC<TenantItemProps> = ({ data }) => {
-  const locale = getCurrentLocale()
+const TenantItem = async ({ data }: TenantItemProps) => {
+  const locale = await getCurrentLocale()
 
   const tenant_name = locale == "en" && data.tenant_name_en ? data.tenant_name_en : data.tenant_name
   const introduction = locale == "en" && data.introduction_en ? data.introduction_en : data.introduction
@@ -68,7 +68,7 @@ const TenantItem: FC<TenantItemProps> = ({ data }) => {
   )
 }
 
-const getData = async (): Promise<Array<Tenant>> => {
+const getData = async (): Promise<Tenant[]> => {
   const data = await client.get({
     endpoint: "tenants",
   })
@@ -78,5 +78,9 @@ const getData = async (): Promise<Array<Tenant>> => {
 export const TenantList = async () => {
   const tenants = await getData()
 
-  return <ul>{tenants && tenants.length > 0 && tenants.map((tenant) => <TenantItem key={tenant.id} data={tenant} />)}</ul>
+  return (
+    <ul>
+      {tenants && tenants.length > 0 && tenants.map((tenant) => <TenantItem key={tenant.id} data={tenant} />)}
+    </ul>
+  )
 }

@@ -1,7 +1,6 @@
 import "@/styles/globals.scss"
 import { ReactNode, Suspense } from "react"
 import { Noto_Sans_JP } from "next/font/google"
-import Script from "next/script"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -18,8 +17,8 @@ const noto = Noto_Sans_JP({
   weight: ["400", "500", "700", "900"],
 })
 
-export default function RootLayout({ children }: { children: ReactNode }) {
-  const locale = getCurrentLocale()
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const locale = await getCurrentLocale()
   return (
     <html lang={locale}>
       <body>
@@ -33,7 +32,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div id="top">
             <Header />
             <main className="font-noto">{children}</main>
-            {/* @ts-expect-error Async Server Component */}
             <Footer />
             <Link scroll={true} className="ripple fixed right-4 bottom-4 w-8 md:w-10" href="#top">
               <Image className="w-full" src="/top_btn.svg" width={32} height={32} alt="top" />
