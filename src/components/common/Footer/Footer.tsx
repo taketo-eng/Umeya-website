@@ -34,8 +34,13 @@ export const Footer = async () => {
               </Link>
             </li>
             <li>
+              <Link scroll={false} href="#event">
+                SCHEDULE & EVENT
+              </Link>
+            </li>
+            <li>
               <Link scroll={false} href="#access">
-                ACCESS & SCHEDULE
+                ACCESS
               </Link>
             </li>
           </ul>
