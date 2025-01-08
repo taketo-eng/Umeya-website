@@ -1,6 +1,8 @@
 "use client"
-import { FC, ReactNode, useEffect, useRef } from "react"
-import gsap from "@/libs/gsap"
+import { FC, ReactNode, useRef } from "react"
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 type Props = {
   children: ReactNode
@@ -9,8 +11,8 @@ type Props = {
 
 export const FadeInUp: FC<Props> = ({ children, isDebug = false }) => {
   const target = useRef(null)
-
-  useEffect(() => {
+  gsap.registerPlugin(useGSAP, ScrollTrigger)
+  useGSAP(() => {
     if (target.current) {
       gsap.set(target.current, {
         opacity: 0,
@@ -28,7 +30,7 @@ export const FadeInUp: FC<Props> = ({ children, isDebug = false }) => {
         },
       })
     }
-  }, [])
+  }, [isDebug])
 
   return <div ref={target}>{children}</div>
 }

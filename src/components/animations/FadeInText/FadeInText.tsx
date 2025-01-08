@@ -1,7 +1,9 @@
 "use client"
-import { FC, useEffect, useRef } from "react"
+import { FC, useRef } from "react"
 import SplitType from "split-type"
-import gsap from "@/libs/gsap"
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 type Props = {
   text: string
@@ -11,8 +13,8 @@ type Props = {
 
 export const FadeInText: FC<Props> = ({ text, scrollTarget, isDebug = false }) => {
   const target = useRef(null)
-
-  useEffect(() => {
+  gsap.registerPlugin(useGSAP, ScrollTrigger)
+  useGSAP(() => {
     if (target.current) {
       gsap.set(target.current, { visibility: "visible" })
       const text = new SplitType(target.current, { types: "words,chars", tagName: "span" })
@@ -30,7 +32,7 @@ export const FadeInText: FC<Props> = ({ text, scrollTarget, isDebug = false }) =
         },
       })
     }
-  }, [])
+  }, [scrollTarget, isDebug])
 
   return (
     <span className="invisible" ref={target}>

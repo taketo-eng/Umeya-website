@@ -1,6 +1,8 @@
 "use client"
-import gsap from "@/libs/gsap"
-import { FC, ReactNode, useEffect, useRef } from "react"
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+import { FC, ReactNode, useRef } from "react"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 type Props = {
   children: ReactNode
@@ -9,10 +11,12 @@ type Props = {
   moduleStyles?: string
 }
 
+
+
 export const VeilOpen: FC<Props> = ({ children, moduleStyles, className, isDebug = false }) => {
   const target = useRef(null)
-
-  useEffect(() => {
+  gsap.registerPlugin(useGSAP, ScrollTrigger)
+  useGSAP(() => {
     if (target.current) {
       gsap.set(target.current, {
         clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
@@ -28,7 +32,7 @@ export const VeilOpen: FC<Props> = ({ children, moduleStyles, className, isDebug
         },
       })
     }
-  }, [])
+  }, [isDebug])
 
   return (
     <div className={`relative overflow-hidden ${moduleStyles ?? ""} ${className ?? ""}`}>

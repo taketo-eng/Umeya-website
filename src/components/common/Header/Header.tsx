@@ -5,7 +5,7 @@ import { FC, useRef, useState } from "react"
 import Link from "next/link"
 import { useChangeLocale, useCurrentLocale } from "@/locales/client"
 import clsx from "clsx"
-import gsap from "@/libs/gsap"
+import gsap from "gsap"
 
 const DURATION = 0.4
 
