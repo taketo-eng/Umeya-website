@@ -1,6 +1,6 @@
 import styles from "@/styles/common.module.scss"
 import { FadeInUp } from '@/components/animations/FadeInUp'
-import { VeilOpen } from '@/components/animations/VeilOpen/VeilOpen'
+import { VeilOpen } from '@/components/animations/VeilOpen'
 import { MainTitle } from '@/components/parts/MainTitle'
 import Image from 'next/image'
 import React from 'react'

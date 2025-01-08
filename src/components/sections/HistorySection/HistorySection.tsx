@@ -3,7 +3,7 @@ import { MainTitle } from '@/components/parts/MainTitle'
 import React from 'react'
 import styles from "@/styles/common.module.scss"
 import { getCurrentLocale } from '@/locales/server'
-import { VeilOpen } from '@/components/animations/VeilOpen/VeilOpen'
+import { VeilOpen } from '@/components/animations/VeilOpen'
 import Image from 'next/image'
 import { getSetting } from '@/helpers/getSetting'
 import { HistoryItem } from '@/components/parts/HistoryItem'

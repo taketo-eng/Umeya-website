@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import styles from "@/styles/common.module.scss"
 import { FadeInUp } from "@/components/animations/FadeInUp"
-import { VeilOpen } from "@/components/animations/VeilOpen/VeilOpen"
+import { VeilOpen } from "@/components/animations/VeilOpen"
 import Image from "next/image"
 import { Tenant } from "@/types/common"
 import { getCurrentLocale } from "@/locales/server"
