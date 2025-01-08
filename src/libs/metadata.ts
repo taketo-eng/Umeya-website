@@ -41,7 +41,7 @@ export const getMetadata = (lang: "ja" | "en"): Metadata => {
       locale: lang == "ja" ? "ja" : "en",
       type: "website",
       images: {
-        url: "/og.jpg",
+        url: "/og.webp",
         alt: lang == "ja" ? "古民家梅屋" : "Umeya",
         width: "1200",
         height: "628",
