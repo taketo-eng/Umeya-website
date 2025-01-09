@@ -5,7 +5,7 @@ import { formatStartToEnd, nl2br } from '@/helpers/converter'
 import { useCurrentLocale } from '@/locales/client'
 
 import "keen-slider/keen-slider.min.css"
-import { useKeenSlider } from 'keen-slider/react'
+import { KeenSliderInstance, useKeenSlider } from 'keen-slider/react'
 import { useState } from "react"
 import Image from "next/image"
 
@@ -56,6 +56,42 @@ const Card = ({schedule, category}:CardProps) => {
     )
 }
 
+const KeyboardControls = (slider: KeenSliderInstance) => {
+    let focused = false;
+  
+    function eventFocus() {
+      focused = true;
+    }
+  
+    function eventBlur() {
+      focused = false;
+    }
+  
+    function eventKeydown(e:globalThis.KeyboardEvent) {
+      if (!focused) return;
+      switch (e.key) {
+        default:
+          break;
+        case "Left":
+        case "ArrowLeft":
+          slider.prev();
+          break;
+        case "Right":
+        case "ArrowRight":
+          slider.next();
+          break;
+      }
+    }
+  
+    slider.on("created", () => {
+      slider.container.setAttribute("tabindex", "0");
+      slider.container.addEventListener("focus", eventFocus);
+      slider.container.addEventListener("blur", eventBlur);
+      slider.container.addEventListener("keydown", eventKeydown);
+    });
+  };
+  
+
 
 
 export const ScheduleList = ({schedules}: {schedules: Schedule[]}) => {
@@ -77,7 +113,7 @@ export const ScheduleList = ({schedules}: {schedules: Schedule[]}) => {
             renderMode: "performance",
         },
         [
-
+            KeyboardControls,
         ]
     )
     return (
