@@ -59,13 +59,13 @@ const Card = ({schedule, category}:CardProps) => {
 
 
 export const ScheduleList = ({schedules}: {schedules: Schedule[]}) => {
-    const [currentSlide, useCurrentSlide] = useState(0)
+    const [currentSlide, setCurrentSlide] = useState(0)
     const [loaded, setLoaded] = useState(false)
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>(
         {
             initial: 0,
             slideChanged(s) {
-                useCurrentSlide(s.track.details.rel)
+                setCurrentSlide(s.track.details.rel)
                 console.log(s.track.details.rel)
             },
             created() {
