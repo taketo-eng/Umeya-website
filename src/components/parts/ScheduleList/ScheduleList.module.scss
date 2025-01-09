@@ -1,0 +1,36 @@
+.eventCard {
+    @apply rounded-md bg-white px-6 pb-4 pt-8 drop-shadow-md relative w-full sm:w-80 max-w-full min-w-full md:min-w-80;
+    width:100% !important;
+    @media screen and (min-width: 640px) {
+        width: 20rem !important;
+    }
+
+    h3 {
+        @apply font-bold text-gray-800 border-b border-b-gray-800 pb-1 text-xl mb-2;
+    }
+
+    .card_description {
+        @apply text-gray-800;
+    }
+
+    .category_tag {
+        @apply text-white py-1 px-2 text-xs rounded-lg absolute top-2 right-2;
+    }
+}
+
+.arrow {
+    @apply w-8 h-8 absolute top-1/2 -translate-y-1/2;
+
+    &.arrow_left {
+        @apply -left-4;
+    }
+
+    &.arrow_right {
+        @apply -right-4;
+    }
+
+    &.arrow_disabled {
+        @apply opacity-40;
+    }
+}
+

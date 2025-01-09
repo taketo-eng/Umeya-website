@@ -1,16 +1,13 @@
 'use client'
-import React from 'react'
-import styles from "@/styles/common.module.scss"
+import styles from "./ScheduleList.module.scss"
 import { Schedule } from '@/types/common'
-import 'swiper/css'
-import 'swiper/css/a11y'
-import 'swiper/css/keyboard'
-import 'swiper/css/navigation'
-
-import { Keyboard, A11y, Navigation } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
 import { formatStartToEnd, nl2br } from '@/helpers/converter'
 import { useCurrentLocale } from '@/locales/client'
+
+import "keen-slider/keen-slider.min.css"
+import { useKeenSlider } from 'keen-slider/react'
+import { useState } from "react"
+import Image from "next/image"
 
 type CardProps = {
     schedule: Schedule,
@@ -30,7 +27,9 @@ const Card = ({schedule, category}:CardProps) => {
     }
     const {period, start, end} = formatStartToEnd(schedule.start_time, schedule.end_time)
     let categoryText = category as string
-    let bgColor = category === 'event' ? 'bg-main' : 'bg-sub'
+    const bgColor = category === 'event' ? 'bg-main' : 'bg-sub'
+    const cardColor = category === 'event' ? '!bg-main-light' : ''
+
     if (lang === 'ja') {
         switch (category) {
             case 'open':
@@ -43,7 +42,7 @@ const Card = ({schedule, category}:CardProps) => {
     }
 
     return (
-        <div>
+        <div className={`keen-slider__slide ${styles.eventCard} ${cardColor}`}>
             <span className={`${styles.category_tag} ${bgColor}`}>{categoryText}</span>
             <h3>{title}</h3>
             <p>{lang == 'en' ? 'Date' : '日付'} : {period}</p>
@@ -60,35 +59,72 @@ const Card = ({schedule, category}:CardProps) => {
 
 
 export const ScheduleList = ({schedules}: {schedules: Schedule[]}) => {
+    const [currentSlide, useCurrentSlide] = useState(0)
+    const [loaded, setLoaded] = useState(false)
+    const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>(
+        {
+            initial: 0,
+            slideChanged(s) {
+                useCurrentSlide(s.track.details.rel)
+                console.log(s.track.details.rel)
+            },
+            created() {
+                setLoaded(true)
+            },
+            slides: {
+                perView: 'auto',
+                spacing: 24,
+            },
+            renderMode: "performance",
+        },
+        [
+
+        ]
+    )
     return (
-        <div className="md:px-4 px-0">
-            <Swiper
-            modules={[Navigation, Keyboard, A11y]}
-            slidesPerView='auto'
-            spaceBetween={24}
-            width={100}
-            style={{
-                paddingBottom: '12px',
-                paddingTop: '12px',
-            }}
-            keyboard={{
-                enabled: true,
-            }}
-            navigation
-            >
-                {schedules.map((schedule, index) => {
-                    let category = schedule.category[0]
-                    if (!category) {
-                        category = 'open'
+        <div className="px-4 relative">
+            <div ref={sliderRef} className="keen-slider py-3">
+                {schedules.map((schedule, index) => <Card key={index} schedule={schedule} category={schedule.category[0] ? schedule.category[0] : 'open'}/>)}
+            </div>
+            {loaded && instanceRef.current && (
+                <>
+                    <Arrow
+                    left
+                    onClick={(e) =>
+                        e.stopPropagation() || instanceRef.current?.prev()
                     }
-                    const cardColor = category === 'event' ? '!bg-main-light' : ''
-                    return (
-                        <SwiperSlide key={index} className={`${styles.eventCard} ${cardColor}`} >
-                            <Card schedule={schedule} category={category}/>
-                        </SwiperSlide>
-                    )
-                })}
-            </Swiper>
+                    disabled={currentSlide === 0}
+                    />
+
+                    <Arrow
+                    onClick={(e) =>
+                        e.stopPropagation() || instanceRef.current?.next()
+                    }
+                    disabled = {
+                        currentSlide === instanceRef.current.track.details.slides.length - 1
+                    }
+                    />
+                </>
+            )}
         </div>
+    )
+}
+
+type ArrowProps = {
+    disabled: boolean
+    left?: boolean
+    onClick: (e: any) => void
+}
+
+function Arrow(props:ArrowProps) {
+    const disabled = props.disabled ? styles.arrow_disabled : ""
+    return (
+        <button
+            onClick={props.onClick}
+            className = {`${styles.arrow} ${props.left ? styles.arrow_left : styles.arrow_right} ${disabled}`}
+            disabled={props.disabled}
+        >
+            <Image src={props.left ? "/prev.svg" : "/next.svg"} alt={props.left ? "Previous Slide" : "Next Slide"} width={32} height={32} />
+        </button>
     )
 }
