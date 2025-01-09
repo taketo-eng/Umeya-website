@@ -66,7 +66,6 @@ export const ScheduleList = ({schedules}: {schedules: Schedule[]}) => {
             initial: 0,
             slideChanged(s) {
                 setCurrentSlide(s.track.details.rel)
-                console.log(s.track.details.rel)
             },
             created() {
                 setLoaded(true)
