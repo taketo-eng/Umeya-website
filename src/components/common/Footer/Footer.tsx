@@ -19,27 +19,27 @@ export const Footer = async () => {
           </small>
           <ul className="flex flex-col md:flex-row gap-5 text-xs md:text-sm items-center">
             <li>
-              <Link scroll={false} href="#about">
+              <Link scroll={true} href="#about">
                 ABOUT
               </Link>
             </li>
             <li>
-              <Link scroll={false} href="#history">
+              <Link scroll={true} href="#history">
                 HISTORY
               </Link>
             </li>
             <li>
-              <Link scroll={false} href="#background">
+              <Link scroll={true} href="#background">
                 BACKGROUND
               </Link>
             </li>
             <li>
-              <Link scroll={false} href="#event">
+              <Link scroll={true} href="#event">
                 SCHEDULE & EVENT
               </Link>
             </li>
             <li>
-              <Link scroll={false} href="#access">
+              <Link scroll={true} href="#access">
                 ACCESS
               </Link>
             </li>
