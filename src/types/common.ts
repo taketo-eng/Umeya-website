@@ -16,7 +16,8 @@ export type Setting = {
   address_note: string,
   address_note_en: string,
   car_park: string,
-  car_park_en: string
+  car_park_en: string,
+  tenant_data: Tenant[]
 }
 
 export type History = {
@@ -28,7 +29,7 @@ export type History = {
 }
 
 export type Tenant = {
-  id: string
+  fieldId: string
   tenant_name: string
   tenant_name_en?: string
   introduction: string

@@ -5,9 +5,9 @@ import { VeilOpen } from "@/components/animations/VeilOpen"
 import Image from "next/image"
 import { Tenant } from "@/types/common"
 import { getCurrentLocale } from "@/locales/server"
-import { client } from "@/libs/microcms"
 import clsx from "clsx"
 import { nl2br } from "@/helpers/converter"
+import { getSetting } from "@/helpers/getSetting"
 
 type TenantItemProps = {
   data: Tenant
@@ -68,19 +68,12 @@ const TenantItem = async ({ data }: TenantItemProps) => {
   )
 }
 
-const getData = async (): Promise<Tenant[]> => {
-  const data = await client.get({
-    endpoint: "tenants",
-  })
-  return data.contents
-}
-
 export const TenantList = async () => {
-  const tenants = await getData()
+  const setting = await getSetting()
 
   return (
     <ul>
-      {tenants && tenants.length > 0 && tenants.map((tenant) => <TenantItem key={tenant.id} data={tenant} />)}
+      {setting.tenant_data && setting.tenant_data.length > 0 && setting.tenant_data.map((tenant, idx) => <TenantItem key={`${tenant.fieldId}_${idx}`} data={tenant} />)}
     </ul>
   )
 }

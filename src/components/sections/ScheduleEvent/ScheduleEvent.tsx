@@ -8,15 +8,34 @@ import React from 'react'
 
 const getSchedules = async () : Promise<Schedule[]> => {
     const data = await client.get({
-        endpoint: "schedule",
+        endpoint: "schedules",
+        queries: {
+            limit: 10,
+            orders: "-start_time"
+        }
     })
     // get only latest 10 items
-    return data.schedules.slice(0, 10)
+    return data.contents
+}
+
+const getPastEvents = async () : Promise<Schedule[]> => {
+    const data = await client.get({
+        endpoint: "schedules",
+        queries: {
+            limit: 10,
+            orders: "-start_time",
+            // get finished past events
+            filters: `category[contains]event[and]end_time[less_than]${new Date().toISOString()}`
+        }
+    })
+
+    return data.contents
 }
 
 export const ScheduleEvent = async () => {
     const lang = await getCurrentLocale()
     const scheduleList = await getSchedules()
+    const eventList = await getPastEvents()
 
     let title = "スケジュール・イベント"
     switch(lang) {
@@ -30,6 +49,8 @@ export const ScheduleEvent = async () => {
             <div className="w-base max-w-7xl mx-auto">
                 <MainTitle isAnim title={title} titleEn="Schedule & Event" />
                 <ScheduleList schedules={scheduleList} />
+                <h3 className="font-bold text-main text-lg md:text-xl mt-6 mb-2">{lang === "ja" ? "過去のイベント" : "Past Events"}</h3>
+                <ScheduleList schedules={eventList} />
             </div>
         </section>
     )
