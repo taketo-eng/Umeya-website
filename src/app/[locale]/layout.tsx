@@ -3,6 +3,7 @@ import { ReactNode, Suspense } from "react"
 import { Noto_Sans_JP } from "next/font/google"
 import Link from "next/link"
 import Image from "next/image"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { AdobeFonts } from "@/components/fonts/AdobeFonts"
 import { GoogleTagManager } from "@/components/seo/GTM"
@@ -22,6 +23,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html lang={locale}>
       <body>
+        <SpeedInsights />
         <Suspense>
           <GoogleTagManager />
         </Suspense>
