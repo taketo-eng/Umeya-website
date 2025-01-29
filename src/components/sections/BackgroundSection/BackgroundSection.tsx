@@ -9,7 +9,7 @@ import { getSetting } from "@/helpers/getSetting"
 
 export const BackgroundSection = async () => {
   const lang = await getCurrentLocale()
-  const { bg_image, bg_content, bg_content_en } = await getSetting()
+  const { bg_image, bg_image_sp, bg_content, bg_content_en } = await getSetting()
 
   let title = "再オープンの背景"
   switch(lang) {
@@ -25,7 +25,8 @@ export const BackgroundSection = async () => {
         <div className="md:px-4 px-0">
           <div className={`${styles.row} ${styles.reverse}`}>
             <VeilOpen>
-              <Image src={bg_image.url} width={bg_image.width} height={bg_image.height} alt={`Image of ${title}`} />
+              <Image className="md:hidden" src={bg_image_sp.url} width={bg_image_sp.width} height={bg_image_sp.height} alt={`Image of ${title}`} />
+              <Image className="hidden md:block" src={bg_image.url} width={bg_image.width} height={bg_image.height} alt={`Image of ${title}`} />
             </VeilOpen>
             <div>
               <FadeInUp>

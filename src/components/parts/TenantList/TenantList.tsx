@@ -46,7 +46,8 @@ const TenantItem = async ({ data }: TenantItemProps) => {
       <h3 className="text-main font-bold mb-4 border-b border-main pb-2 text-xl">{tenant_name}</h3>
       <div className={`${styles.row} ${styles.reverse} ${styles.pad_col}`}>
         <VeilOpen className={clsx(isVertical && "md:!w-1/2 lg:!w-1/4")}>
-          <Image src={data.tenant_image.url} width={data.tenant_image.width} height={data.tenant_image.height} alt={tenant_name} />
+          <Image className="md:hidden" src={data.tenant_image_sp.url} width={data.tenant_image_sp.width} height={data.tenant_image_sp.height} alt={tenant_name} />
+          <Image className="hidden md:block" src={data.tenant_image.url} width={data.tenant_image.width} height={data.tenant_image.height} alt={tenant_name} />
         </VeilOpen>
         <div className="w-full">
           <FadeInUp>

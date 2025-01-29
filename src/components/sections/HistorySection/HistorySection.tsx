@@ -10,7 +10,7 @@ import { HistoryItem } from '@/components/parts/HistoryItem'
 
 export const HistorySection = async () => {
     const lang = await getCurrentLocale()
-    const { history_data, history_image } = await getSetting()
+    const { history_data, history_image, history_image_sp } = await getSetting()
 
     let title = "梅屋の歴史"
     switch(lang) {
@@ -32,7 +32,8 @@ export const HistorySection = async () => {
                 </FadeInUp>
 
                 <VeilOpen moduleStyles={styles.history_image}>
-                    <Image src={history_image.url} width={history_image.width} height={history_image.height} alt="history" />
+                    <Image className="md:hidden" src={history_image_sp.url} width={history_image_sp.width} height={history_image_sp.height} alt="history" />
+                    <Image className="hidden md:block" src={history_image.url} width={history_image.width} height={history_image.height} alt="history" />
                 </VeilOpen>
                 </div>
             </div>

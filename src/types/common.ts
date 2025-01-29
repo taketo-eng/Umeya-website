@@ -4,11 +4,14 @@ export type Setting = {
   catch_phrase:string,
   catch_phrase_en: string,
   about_image: Image,
+  about_image_sp: Image,
   about_content: string,
   about_content_en: string,
   history_data: History[],
   history_image: Image,
+  history_image_sp: Image,
   bg_image: Image,
+  bg_image_sp: Image,
   bg_content: string,
   bg_content_en: string,
   address: string,
@@ -35,6 +38,7 @@ export type Tenant = {
   introduction: string
   introduction_en?: string
   tenant_image: Image
+  tenant_image_sp: Image
   instagram_url?: string
   facebook_url?: string
   site_url?: string
