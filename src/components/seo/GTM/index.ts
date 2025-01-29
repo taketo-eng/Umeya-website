@@ -1,1 +1,0 @@
-export { GoogleTagManager } from "./GTM"

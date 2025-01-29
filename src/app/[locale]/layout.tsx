@@ -6,7 +6,6 @@ import Image from "next/image"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { AdobeFonts } from "@/components/fonts/AdobeFonts"
-import { GoogleTagManager } from "@/components/seo/GTM"
 import { StructuredData } from "@/components/seo/StructuredData"
 import { Header } from "@/components/common/Header"
 import { Footer } from "@/components/common/Footer"
@@ -24,9 +23,6 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html lang={locale}>
       <body>
         <SpeedInsights />
-        <Suspense>
-          <GoogleTagManager />
-        </Suspense>
         <StructuredData />
         <AdobeFonts />
         <div className={`${noto.variable} font-sans overflow-hidden`}>
