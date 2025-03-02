@@ -55,14 +55,12 @@ export type Schedule = {
 }
 
 export type InstagramPost = {
-  id: string
-  caption: string
-  comments_count: number
-  like_count: number
-  media_type: string
+  media_type: "IMAGE" | "VIDEO" | "CAROUSEL_ALBUM"
   media_url: string
+  id: string,
+  thumbnail_url?:string
   permalink: string
-  timestamp: string
+  caption: string
 }
 
 export type Image = {

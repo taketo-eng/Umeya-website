@@ -20,15 +20,9 @@ export const InstagramGallery = async () => {
                 <li className="w-1/2 transition-opacity duration-300 hover:opacity-80 md:w-1/4" key={postData.id}>
                   <a href={postData.permalink} target="_blank" rel="noopener noreferrer">
                     <div className="w-full">
-                      {postData.media_type == "VIDEO" ? (
-                        <div className="relative h-0 w-full overflow-hidden pt-[100%]">
-                          <video className="absolute left-0 right-0 top-0 bottom-0 block h-full w-full  object-cover" src={postData.media_url}></video>
+                      <div className="relative h-0 w-full overflow-hidden pt-[100%]">
+                          <img loading="lazy" className=" absolute left-0 right-0 top-0 bottom-0 block h-full w-full object-cover" src={postData.media_type != "VIDEO" ? postData.media_url : postData.thumbnail_url} alt={postData.caption} />
                         </div>
-                      ) : (
-                        <div className="relative h-0 w-full overflow-hidden pt-[100%]">
-                          <img loading="lazy" className=" absolute left-0 right-0 top-0 bottom-0 block h-full w-full object-cover" src={postData.media_url} alt={postData.caption} />
-                        </div>
-                      )}
                     </div>
                   </a>
                 </li>
