@@ -13,6 +13,7 @@ import { type Metadata } from "next"
 import { dictionary } from "@/libs/server/i18n"
 import { getMetadata } from "@/libs/metadata"
 import { I18nProvider } from "@/hooks/i18n-client"
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const noto = Noto_Sans_JP({
   subsets: ["latin"],
@@ -53,6 +54,9 @@ export default async function RootLayout({ children, params }: Props) {
           </I18nProvider>
         </div>
       </body>
+      {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS as string} />
+      )}
     </html>
   )
 }
