@@ -3,9 +3,11 @@ import Image from "next/image"
 import styles from "./Header.module.scss"
 import { FC, useRef, useState } from "react"
 import Link from "next/link"
-import { useChangeLocale, useCurrentLocale } from "@/locales/client"
 import clsx from "clsx"
 import gsap from "gsap"
+import { useLocale } from "@/hooks/i18n-client"
+import { usePathname } from "next/navigation"
+import { useRouter } from "next/navigation"
 
 const DURATION = 0.4
 
@@ -13,9 +15,9 @@ export const Header: FC = () => {
   const [isOpen, setIsOpen] = useState(false)
   const navBg = useRef(null)
   const nav = useRef(null)
-
-  const locale = useCurrentLocale()
-  const changeLocale = useChangeLocale()
+  const locale = useLocale()
+  const pathname = usePathname()
+  const router = useRouter()
 
   const toggle = () => {
     const newState = !isOpen
@@ -65,8 +67,24 @@ export const Header: FC = () => {
   }
 
   const changeLang = () => {
-    changeLocale(locale == "en" ? "ja" : "en")
+    const newLocale = locale === 'en' ? 'ja' : 'en'
+    document.cookie = `preferred-locale=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}`
+
     close()
+
+    const newPathname = pathname.startsWith(`/${locale}`)
+      ? pathname.substring(`/${locale}`.length) || "/"
+      : pathname
+
+    // return
+    if (newLocale === 'ja') {
+      router.push(newPathname)
+      // window.location.href = '/'
+    }
+    else {
+      router.push(`/${newLocale}${newPathname}`)
+      // window.location.href = `/${newLocale}${newPathname}`
+    }
   }
 
   return (

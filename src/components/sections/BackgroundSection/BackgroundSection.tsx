@@ -4,36 +4,27 @@ import { VeilOpen } from '@/components/animations/VeilOpen'
 import { MainTitle } from '@/components/parts/MainTitle'
 import Image from 'next/image'
 import React from 'react'
-import { getCurrentLocale } from "@/locales/server"
-import { getSetting } from "@/helpers/getSetting"
+import { dictionary } from "@/libs/server/i18n"
 
 export const BackgroundSection = async () => {
-  const lang = await getCurrentLocale()
-  const { bg_image, bg_image_sp, bg_content, bg_content_en } = await getSetting()
-
-  let title = "再オープンの背景"
-  switch(lang) {
-    case "en":
-      title = "Background"
-      break;
-  }
+  const dict = (await dictionary())["Background"]
 
   return (
     <section id="background" className="py-8 md:py-10">
       <div className="w-base max-w-7xl mx-auto">
-        <MainTitle isAnim title={title} titleEn="Background" />
+        <MainTitle isAnim title={dict["title"]} titleEn={"Background"} />
         <div className="md:px-4 px-0">
           <div className={`${styles.row} ${styles.reverse}`}>
             <VeilOpen>
-              <Image className="md:hidden" src={bg_image_sp.url} width={bg_image_sp.width} height={bg_image_sp.height} alt={`Image of ${title}`} />
-              <Image className="hidden md:block" src={bg_image.url} width={bg_image.width} height={bg_image.height} alt={`Image of ${title}`} />
+              <Image className="md:hidden" src="/yabe_river_sp.webp" width={500} height={281} alt={`Image of ${dict['title']}`} />
+              <Image className="hidden md:block" src="/yabe_river.webp" width={800} height={450} alt={`Image of ${dict["title"]}`} />
             </VeilOpen>
             <div>
               <FadeInUp>
                 <div
                   className={styles.text}
                   dangerouslySetInnerHTML={{
-                    __html: lang == 'en' ? bg_content_en : bg_content,
+                    __html: dict["description"]
                   }}
                 />
               </FadeInUp>

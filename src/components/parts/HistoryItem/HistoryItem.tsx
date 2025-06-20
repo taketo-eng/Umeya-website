@@ -1,17 +1,12 @@
-'use client'
-import { useCurrentLocale } from '@/locales/client'
-import { History } from '@/types/common'
-import React from 'react'
 
-export const HistoryItem = ({history}: {history: History}) => {
-    const lang = useCurrentLocale()
+export const HistoryItem = ({ title, content }: { title: string, content: string }) => {
     return (
         <li>
-            <h3>{lang == 'en' ? history.title_en : history.title}</h3>
+            <h3>{title}</h3>
             <div
-            dangerouslySetInnerHTML={{
-                __html: lang == 'en' ? history.content_en : history.content,
-            }}
+                dangerouslySetInnerHTML={{
+                    __html: content,
+                }}
             />
         </li>
     )

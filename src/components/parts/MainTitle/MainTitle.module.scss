@@ -1,13 +1,13 @@
 .title {
   @apply relative mb-7;
 
-  & > span {
+  &>span {
     &:first-of-type {
-      @apply text-4xl md:text-6xl font-noto font-bold uppercase text-text text-opacity-30;
+      @apply text-5xl md:text-7xl font-noto font-bold uppercase text-text text-opacity-10;
     }
 
     &:last-of-type {
-      @apply text-lg font-bold md:text-xl text-main absolute left-0 bottom-0;
+      @apply text-3xl font-bold md:text-4xl text-main absolute left-0 bottom-0;
       z-index: 1;
     }
   }

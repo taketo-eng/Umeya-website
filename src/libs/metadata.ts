@@ -1,63 +1,72 @@
 import { Metadata } from "next"
+import { LanguageObject } from "./server/i18n"
 
-export const getMetadata = (lang: "ja" | "en"): Metadata => {
+export const getMetadata = (dict: LanguageObject): Metadata => {
+  const metadataDict = dict["Metadata"]
+
   return {
     metadataBase: new URL("https://umeya.life/"),
     icons: {
-      apple: {
-        url: "/apple-touch-icon.png",
-      },
+      icon: '/favicon.ico',
+      shortcut: '/favicon-96x96.png',
+      apple: '/apple-icon.png',
     },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-      },
-    },
-    title: lang == "ja" ? "古民家梅屋 | 八女市黒木町" : "Umeya | Traditional Japanese House in Kurogi Town, Yame City",
-    description:
-      lang == "ja"
-        ? "福岡県八女市黒木町にある古民家梅屋の公式ページです。梅屋は人々と伝統をテーマにし、コーヒーなどを提供し、時にはギャラリーや音楽イベントなどを開催しています。"
-        : "This is the official page of Umeya, located in Kurogi Town, Yame, Fukuoka Prefecture, Japan. People and tradition are the themes at Umeya. It offers coffee and retro crockery from Umeya, and occasionally hosts galleries and music events.",
-    keywords: lang == "ja" ? "梅屋,古民家,矢部川,黒木町,八女市,福岡" : "Umeya,Traditional Japanese House,Kurogi Town,Yabe River,Yame City,Fukuoka,Japan",
+    title: metadataDict['title'],
+    description: metadataDict['description'],
+    keywords: metadataDict['keywords'],
+    authors: [{ name: "taketo-eng", url: "https://github.com/taketo-eng" }],
+    creator: "taketo-eng",
+    publisher: "taketo-eng",
     alternates: {
-      canonical: "/",
+      canonical: "https://umeya.life",
       languages: {
-        ja: "/",
-        en: "/en",
+        ja: "https://umeya.life",
+        en: "https://umeya.life/en",
       },
     },
     // og
     openGraph: {
-      title: lang == "ja" ? "古民家梅屋 | 八女市黒木町" : "Umeya",
-      description:
-        lang == "ja"
-          ? "福岡県八女市黒木町にある古民家梅屋の公式ページです。梅屋は人々と伝統をテーマにし、コーヒーなどを提供し、時にはギャラリーや音楽イベントなどを開催しています。"
-          : "This is the official page of Umeya, located in Kurogi Town, Yame, Fukuoka Prefecture, Japan. People and tradition are the themes at Umeya. It offers coffee and retro crockery from Umeya, and occasionally hosts galleries and music events.",
+      title: metadataDict['title'],
+      description: metadataDict['description'],
       emails: "shop@umeya.life",
-      siteName: lang == "ja" ? "古民家梅屋" : "Umeya",
-      locale: lang == "ja" ? "ja" : "en",
+      siteName: metadataDict['title'],
+      locale: "ja",
+      alternateLocale: ["en"],
       type: "website",
       images: {
-        url: "/og.webp",
-        alt: lang == "ja" ? "古民家梅屋" : "Umeya",
+        url: "https://umeya.life/og.webp",
+        alt: metadataDict['title'],
         width: "1200",
         height: "628",
       },
-      url: "https://umeya.life/",
+      url: "https://umeya.life",
       countryName: "Japan",
     },
     // twitter(X) card
     twitter: {
       card: "summary_large_image",
-      site: "@",
-      title: lang == "ja" ? "古民家梅屋" : "Umeya",
-      description:
-        lang == "ja"
-          ? "福岡県八女市黒木町にある古民家梅屋の公式ページです。梅屋は人々と伝統をテーマにし、コーヒーなどを提供し、時にはギャラリーや音楽イベントなどを開催しています。"
-          : "This is the official page of Umeya, located in Kurogi Town, Yame, Fukuoka Prefecture, Japan. People and tradition are the themes at Umeya. It offers coffee and retro crockery from Umeya, and occasionally hosts galleries and music events.",
+      // site: "@",
+      title: metadataDict['title'],
+      description: metadataDict['description'],
+      images: [
+        {
+          url: "https://umeya.life/og.webp",
+          alt: metadataDict['title'],
+        },
+      ],
     },
+    robots: {
+      index: true,
+      follow: true,
+      nocache: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        noimageindex: false,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    }
   }
 }

@@ -1,10 +1,10 @@
+import { getLocale } from "@/libs/server/i18n"
 import Link from "next/link"
-import { getCurrentLocale } from "@/locales/server"
 
 export const Footer = async () => {
-  const lang = await getCurrentLocale()
-  const name = lang == "en" ? "Umeya" : "梅屋"
-  const companyName = lang == "en" ? "YUI Renova. Design" : "結リノベデザイン"
+  const locale = await getLocale()
+  const name = locale === "en" ? "Umeya" : "梅屋"
+  const companyName = locale === "en" ? "YUI Renova. Design" : "結リノベデザイン"
 
   return (
     <footer className="font-noto bg-main text-white py-12">
