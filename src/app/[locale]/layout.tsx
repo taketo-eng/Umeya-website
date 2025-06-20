@@ -14,6 +14,7 @@ import { dictionary } from "@/libs/server/i18n"
 import { getMetadata } from "@/libs/metadata"
 import { I18nProvider } from "@/hooks/i18n-client"
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { Analytics } from "@vercel/analytics/react"
 
 const noto = Noto_Sans_JP({
   subsets: ["latin"],
@@ -53,9 +54,10 @@ export default async function RootLayout({ children, params }: Props) {
             </div>
           </I18nProvider>
         </div>
+        <Analytics />
       </body>
       {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS as string} />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
       )}
     </html>
   )
