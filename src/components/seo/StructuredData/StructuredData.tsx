@@ -1,6 +1,5 @@
 import Script from 'next/script'
 
-
 const structuredData: Record<string, any> = {
     "@context": "http://schema.org",
     "@type": "LocalBusiness",
@@ -16,7 +15,7 @@ const structuredData: Record<string, any> = {
         "addressCountry": "JP"
     },
     "description": "福岡県八女市黒木町にある古民家梅屋の公式ページです。梅屋は人々と伝統をテーマにし、コーヒーなどを提供し、時にはギャラリーや音楽イベントなどを開催しています。",
-    "inLanguage": ["en", "ja"],
+    "inLanguage": ["en", "ja", "de"],
     "browserRequirements": "Requires JavaScript",
     "creator": {
         "@type": "Person",

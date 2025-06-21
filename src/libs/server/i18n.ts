@@ -2,8 +2,7 @@ import { cache } from 'react'
 import { headers } from 'next/headers'
 import ja from '@/locales/ja.json'
 import en from '@/locales/en.json'
-
-const locales = ['ja', 'en']
+import de from '@/locales/de.json'
 
 export const getLocale = cache(async () => {
   const h = await headers()
@@ -22,6 +21,8 @@ export const dictionary = cache(async () => {
       return ja
     case 'en':
       return en
+    case 'de':
+      return de
     default:
       return en
   }

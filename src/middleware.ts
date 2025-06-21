@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server'
+import { locales } from '@/helpers/constant';
 
-const locales = ['ja', 'en']
 const defaultLocale = 'ja'
 
 const socialMediaCrawlers = [

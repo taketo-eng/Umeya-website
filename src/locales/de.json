@@ -1,0 +1,72 @@
+{
+  "Metadata": {
+    "title": "Umeya | Traditionelles japanisches Haus in Kurogi-cho, Yame",
+    "description": "Dies ist die offizielle Seite von Umeya, einem traditionellen japanischen Haus in Kurogi-cho, Yame, Präfektur Fukuoka, Japan. Menschen und Tradition sind die Themen bei Umeya. Wir bieten Kaffee und traditionelles Geschirr an und veranstalten gelegentlich Galerien und Musikevents.",
+    "keywords": [
+      "Umeya",
+      "Traditionelles japanisches Haus",
+      "Café",
+      "Kaffee",
+      "Meiji-Zeit",
+      "Kurogi-cho, Yame",
+      "Kurogi-cho",
+      "Yame",
+      "Yabe-Fluss",
+      "Fukuoka",
+      "Japan"
+    ]
+  },
+  "Nav": {
+    "about": "Über uns",
+    "history": "Geschichte",
+    "background": "Hintergrund",
+    "access": "Anfahrt",
+    "schedule": "Termine & Events",
+    "shops": "Geschäfte"
+  },
+  "KeyVisual": {
+    "title": "Ein Ort der Begegnung.<br/>Verbindung zwischen Menschen und Gemeinde.<br/>Bewahrung von Traditionen."
+  },
+  "About": {
+    "title": "Über uns",
+    "description": "Menschen und Tradition sind die Themen bei Umeya. Es ist erfüllt von dem Wunsch, einen Ort zu schaffen, an dem Menschen zusammenkommen und sich verbinden können, und gleichzeitig Traditionen zu bewahren. Wir servieren hauptsächlich Kaffee und traditionelles Geschirr und veranstalten gelegentlich Galerien und Musikevents. Besuchen Sie uns gerne für einen Moment der Ruhe oder als Zwischenstopp an Ihrem freien Tag."
+  },
+  "History": {
+    "title": "Geschichte",
+    "historyList": [
+      {
+        "title": "Meiji-Zeit (23. Okt. 1868 – 30. Jul. 1912)",
+        "content": "Das Hauptgebäude wurde 1902 (35. Jahr der Meiji-Ära) errichtet, und ein <b>Ryotei (japanisches Restaurant)</b> namens <b>\"Aburaya\"</b> wurde betrieben."
+      },
+      {
+        "title": "Taisho-Zeit (30. Jul. 1912 – 25. Dez. 1926)",
+        "content": "<b>Shinzaburo Matsunobu</b> kaufte das Haus, das zuvor als Ryotei genutzt wurde, und begann unter dem Namen <b>Umeya</b> ein Medizingeschäft zu betreiben, das sich mit <b>Medikamenten, Dynamit und anderen Sprengstoffen</b> befasste."
+      },
+      {
+        "title": "Shōwa-Zeit (25. Dez. 1926 – 7. Jan. 1989)",
+        "content": "1935 (10. Jahr der Shōwa-Ära) wurde Umeya erweitert und ein separates Gebäude errichtet."
+      }
+    ]
+  },
+  "Background": {
+    "title": "Hintergrund der Wiedereröffnung",
+    "description": "Umeya sollte nach den Plänen der vorherigen Besitzerin ein Café werden, in dem Menschen in einem alten Volkshaus zusammenkommen konnten.<br/>Jedoch verstarb sie auf halbem Weg, und die Pläne kamen zum Stillstand.<br/>Etwa 15 Jahre nachdem das Haus leer stand, besuchten wir oft Yame und pflegten Kontakt zu den Einheimischen. Eines Tages hörten wir von diesem alten Volkshaus und beschlossen, es zu nutzen, indem wir den Wunsch der Besitzerin übernahmen, einen Ort der Begegnung zu schaffen, wie sie es sich damals vorgestellt hatte.<br/>Nicht nur das, sondern auch die Güte der Menschen, die traditionelle Architektur, die sich hier reiht, und der weite Yabe-Fluss hinter Umeya ermutigten uns, dieses Kurogi bekannt zu machen."
+  },
+  "Access": {
+    "title": "Anfahrt",
+    "address": "37, Kurogi, Kurogi-cho, Yame, Präfektur Fukuoka, Japan",
+    "accessMethod": "4 Minuten zu Fuß vom Parkplatz",
+    "parking": "※ Parkplatz: Kostenloser Parkplatz neben dem Kurogi Sportzentrum"
+  },
+  "Instagram": {
+    "title": "Instagram"
+  },
+  "Schedule": {
+    "title": "Termine & Veranstaltungen",
+    "pastEventTitle": "Vergangene Veranstaltungen"
+  },
+  "Tenant": {
+    "title": "Geschäfte",
+    "description": "Umeya vermietet auch Räume, damit kleine Geschäfte in kleinerem Rahmen eröffnet werden können."
+  }
+}

@@ -2,13 +2,14 @@
 
 import { createContext, useContext } from 'react'
 import { type LanguageObject } from '@/libs/server/i18n'
+import { Language } from '@/types/common';
 
 const I18nContext = createContext({} as {
   dictionary: LanguageObject;
-  locale: string;
+  locale: Language;
 })
 
-export function I18nProvider({ children, dictionary, locale }: { children: React.ReactNode, dictionary: LanguageObject, locale: string }) {
+export function I18nProvider({ children, dictionary, locale }: { children: React.ReactNode, dictionary: LanguageObject, locale: Language }) {
   return (
     <I18nContext.Provider value={{ dictionary, locale }}>
       {children}

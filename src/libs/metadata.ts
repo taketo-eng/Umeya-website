@@ -22,6 +22,7 @@ export const getMetadata = (dict: LanguageObject): Metadata => {
       languages: {
         ja: "https://umeya.life",
         en: "https://umeya.life/en",
+        de: "https://umeya.life/de",
       },
     },
     // og
@@ -31,7 +32,7 @@ export const getMetadata = (dict: LanguageObject): Metadata => {
       emails: "shop@umeya.life",
       siteName: metadataDict['title'],
       locale: "ja",
-      alternateLocale: ["en"],
+      alternateLocale: ["en", "de"],
       type: "website",
       images: {
         url: "https://umeya.life/og.webp",

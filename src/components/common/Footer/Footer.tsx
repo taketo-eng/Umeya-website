@@ -3,8 +3,8 @@ import Link from "next/link"
 
 export const Footer = async () => {
   const locale = await getLocale()
-  const name = locale === "en" ? "Umeya" : "梅屋"
-  const companyName = locale === "en" ? "YUI Renova. Design" : "結リノベデザイン"
+  const name = locale !== "ja" ? "梅屋" : "Umeya"
+  const companyName = locale === "ja" ? "結リノベデザイン" : "YUI Renova. Design"
 
   return (
     <footer className="font-noto bg-main text-white py-12">

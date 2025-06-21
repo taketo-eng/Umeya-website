@@ -16,6 +16,14 @@
       "日本"
     ]
   },
+  "Nav": {
+    "about": "About",
+    "history": "History",
+    "background": "Background",
+    "access": "Access",
+    "schedule": "Schedule & Events",
+    "shops": "Shops"
+  },
   "KeyVisual": {
     "title": "人々が集い、<br />　　人と地域が繋がり、<br />　　　　伝統を残す"
   },

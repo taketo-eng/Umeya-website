@@ -58,12 +58,14 @@
         transition: translate 0.3s, rotate 0.3s;
         transition-delay: 0s;
       }
+
       &:nth-of-type(2) {
         translate: -50% calc(-50%);
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
         transition: clip-path 0.3s;
         transition-delay: 0.3s;
       }
+
       &:nth-of-type(3) {
         translate: -50% calc(-50% + 12px);
         transition: translate 0.3s, rotate 0.3s;
@@ -89,10 +91,12 @@
           rotate: 45deg;
           transition-delay: 0.3s;
         }
+
         &:nth-of-type(2) {
           clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
           transition-delay: 0s;
         }
+
         &:nth-of-type(3) {
           translate: -50% -50%;
           rotate: -45deg;
@@ -131,6 +135,7 @@
 
   ul {
     @apply flex flex-col gap-3;
+
     li {
       @apply text-text uppercase font-medium text-center text-xl;
 
@@ -149,7 +154,7 @@
       }
 
       &:last-of-type {
-        @apply relative;
+        @apply flex flex-row gap-2;
 
         a,
         button {
@@ -160,54 +165,61 @@
           display: none;
         }
 
-        span {
-          @apply absolute bg-text block;
-          transition: clip-path 0.15s linear;
-          &:nth-of-type(1) {
-            @apply top-0 left-0 right-0 h-1px;
-            clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-            transition-delay: 0.45s;
-          }
+        button {
+          @apply relative;
 
-          &:nth-of-type(2) {
-            @apply right-0 top-0 bottom-0 w-1px;
-            clip-path: polygon(0 0, 100% 0, 0 0, 100% 0);
-            transition-delay: 0.3s;
-          }
-
-          &:nth-of-type(3) {
-            @apply left-0 right-0 bottom-0 h-1px;
-            clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-            transition-delay: 0.15s;
-          }
-
-          &:nth-of-type(4) {
-            @apply left-0 top-0 bottom-0 w-1px;
-            clip-path: polygon(0 100%, 100% 100%, 0 100%, 100% 100%);
-            transition-delay: 0s;
-          }
-        }
-
-        &:hover {
           span {
+            @apply absolute bg-text block;
+            transition: clip-path 0.15s linear;
+
             &:nth-of-type(1) {
-              clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-              transition-delay: 0s;
+              @apply top-0 left-0 right-0 h-1px;
+              clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+              transition-delay: 0.45s;
             }
 
             &:nth-of-type(2) {
-              clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-              transition-delay: 0.15s;
-            }
-
-            &:nth-of-type(3) {
-              clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+              @apply right-0 top-0 bottom-0 w-1px;
+              clip-path: polygon(0 0, 100% 0, 0 0, 100% 0);
               transition-delay: 0.3s;
             }
 
+            &:nth-of-type(3) {
+              @apply left-0 right-0 bottom-0 h-1px;
+              clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+              transition-delay: 0.15s;
+            }
+
             &:nth-of-type(4) {
-              clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-              transition-delay: 0.45s;
+              @apply left-0 top-0 bottom-0 w-1px;
+              clip-path: polygon(0 100%, 100% 100%, 0 100%, 100% 100%);
+              transition-delay: 0s;
+            }
+          }
+        }
+
+        button {
+          &:hover {
+            span {
+              &:nth-of-type(1) {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                transition-delay: 0s;
+              }
+
+              &:nth-of-type(2) {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                transition-delay: 0.15s;
+              }
+
+              &:nth-of-type(3) {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                transition-delay: 0.3s;
+              }
+
+              &:nth-of-type(4) {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                transition-delay: 0.45s;
+              }
             }
           }
         }

@@ -16,6 +16,14 @@
       "Japan"
     ]
   },
+  "Nav": {
+    "about": "About",
+    "history": "History",
+    "background": "Background",
+    "access": "Access",
+    "schedule": "Schedule & Events",
+    "shops": "Shops"
+  },
   "KeyVisual": {
     "title": "Gathering place.<br/>People and local communities connection.<br/>Preservation of traditions."
   },

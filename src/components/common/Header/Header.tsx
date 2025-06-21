@@ -5,9 +5,11 @@ import { FC, useRef, useState } from "react"
 import Link from "next/link"
 import clsx from "clsx"
 import gsap from "gsap"
-import { useLocale } from "@/hooks/i18n-client"
+import { useDictionary, useLocale } from "@/hooks/i18n-client"
 import { usePathname } from "next/navigation"
 import { useRouter } from "next/navigation"
+import { locales } from "@/helpers/constant"
+import { Language } from "@/types/common"
 
 const DURATION = 0.4
 
@@ -18,6 +20,8 @@ export const Header: FC = () => {
   const locale = useLocale()
   const pathname = usePathname()
   const router = useRouter()
+  const otherLocales = locales.filter(l => l !== locale) as Language[]
+  const dict = useDictionary()["Nav"]
 
   const toggle = () => {
     const newState = !isOpen
@@ -66,8 +70,7 @@ export const Header: FC = () => {
     }
   }
 
-  const changeLang = () => {
-    const newLocale = locale === 'en' ? 'ja' : 'en'
+  const changeLang = (newLocale: Language) => {
     document.cookie = `preferred-locale=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}`
 
     close()
@@ -112,28 +115,33 @@ export const Header: FC = () => {
             </Link>
           </li>
           <li>
+            <Link scroll={true} onClick={close} href="#shop">
+              {dict["shops"]}
+            </Link>
+          </li>
+          <li>
             <Link scroll={true} onClick={close} href="#about">
-              About
+              {dict["about"]}
             </Link>
           </li>
           <li>
             <Link scroll={true} onClick={close} href="#history">
-              History
+              {dict["history"]}
             </Link>
           </li>
           <li>
             <Link scroll={true} onClick={close} href="#background">
-              Background
+              {dict["background"]}
             </Link>
           </li>
           <li>
             <Link scroll={true} onClick={close} href="#event">
-              Schedule & Event
+              {dict["schedule"]}
             </Link>
           </li>
           <li>
             <Link scroll={true} onClick={close} href="#access">
-              Access
+              {dict["access"]}
             </Link>
           </li>
           <li>
@@ -147,13 +155,15 @@ export const Header: FC = () => {
             </a>
           </li>
           <li>
-            <button onClick={changeLang}>
-              {locale == "en" ? "日本語" : "English"}
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+            {otherLocales.map(l => (
+              <button key={l} onClick={() => changeLang(l)}>
+                {l === "ja" ? "日本語" : l === 'en' ? "English" : "Deutsch"}
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            ))}
           </li>
         </ul>
       </nav>

@@ -6,8 +6,10 @@ export type Tenant = {
   fieldId: string
   tenant_name: string
   tenant_name_en?: string
+  tenant_name_de?: string
   introduction: string
   introduction_en?: string
+  introduction_de?: string
   tenant_image: Image
   tenant_image_sp: Image
   instagram_url?: string
@@ -18,8 +20,10 @@ export type Tenant = {
 export type Schedule = {
   title?: string
   title_en?: string
+  title_de?: string
   description: string,
   description_en?: string,
+  description_de?: string,
   start_time: string
   end_time: string
   category: ('event' | 'open' | '')[]
@@ -39,3 +43,5 @@ export type Image = {
   height: number
   width: number
 }
+
+export type Language = 'ja' | 'en' | 'de'

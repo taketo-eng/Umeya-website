@@ -28,7 +28,7 @@ const LinkButton: FC<LinkItemProps> = ({ locale, label, labelEn, url }) => {
       rel="noopener noreferrer"
       href={url}
     >
-      {locale == "en" ? labelEn : label}
+      {locale == "ja" ? label : labelEn}
       <Image className="absolute md:relative right-3 top-1/2 md:right-0 md:top-0 -translate-y-1/2 md:translate-y-0 !w-3 h-3" width={30} height={30} src="/external-link.svg" alt="external-link" />
     </a>
   )
@@ -37,8 +37,8 @@ const LinkButton: FC<LinkItemProps> = ({ locale, label, labelEn, url }) => {
 export const TenantItem = ({ data }: TenantItemProps) => {
   const locale = useLocale()
 
-  const tenant_name = locale === "en" && data.tenant_name_en ? data.tenant_name_en : data.tenant_name
-  const introduction = locale === "en" && data.introduction_en ? data.introduction_en : data.introduction
+  const tenant_name = locale === "en" && data.tenant_name_en ? data.tenant_name_en : locale === "de" && data.tenant_name_de ? data.tenant_name_de : data.tenant_name
+  const introduction = locale === "en" && data.introduction_en ? data.introduction_en : locale === "de" && data.introduction_de ? data.introduction_de : data.introduction
   const isVertical = data.tenant_image.height / data.tenant_image.width > 1
 
   return (

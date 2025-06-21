@@ -1,13 +1,9 @@
+import { locales } from "@/helpers/constant"
 import type { MetadataRoute } from "next"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://umeya.life'
   const lastModified = new Date("2025-06-10")
-
-  const locales = [
-    "ja",
-    "en"
-  ]
 
   const pages = [
     "",

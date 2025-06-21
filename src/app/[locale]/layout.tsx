@@ -15,6 +15,7 @@ import { getMetadata } from "@/libs/metadata"
 import { I18nProvider } from "@/hooks/i18n-client"
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Analytics } from "@vercel/analytics/react"
+import { Language } from "@/types/common"
 
 const noto = Noto_Sans_JP({
   subsets: ["latin"],
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function RootLayout({ children, params }: Props) {
-  const { locale } = await params
+  const { locale } = await params as { locale: Language }
   const dict = (await dictionary())
   return (
     <html lang={locale}>

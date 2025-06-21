@@ -12,13 +12,13 @@ export const Access = async () => {
     return (
         <section id="access" className="pb-16 pt-8 md:pb-20 md:pt-10">
             <div className="w-base max-w-7xl mx-auto">
-                <MainTitle isAnim title={dict["title"]} titleEn={"Access"} />
+                <MainTitle isAnim title={dict["title"]} titleEn={locale === 'de' ? 'Anfahrt' : "Access"} />
                 <div className="md:px-4 px-0">
                     <FadeInUp>
                         <div className="mb-8">
                             <address
                                 className={clsx(`${styles.text} not-italic`, {
-                                    "font-bold": locale === "en",
+                                    "font-bold": locale === "en" || locale === "de",
                                     "font-medium": locale === "ja",
                                 })}
                             >

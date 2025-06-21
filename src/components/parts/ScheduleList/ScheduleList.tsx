@@ -15,15 +15,31 @@ type CardProps = {
 
 const Card = ({ schedule, category }: CardProps) => {
     const locale = useLocale()
-    let title = schedule.title ? schedule.title : locale == 'en' ? 'Open Day' : 'オープン日'
-    if (schedule.title_en && locale == 'en') {
-        title = schedule.title_en
+    // default text
+    let title = ""
+    switch (locale) {
+        case 'en':
+            title = 'Open Day'
+            if (schedule.title_en) title = schedule.title_en
+            break
+        case 'de':
+            title = 'Öffnungstag'
+            if (schedule.title_de) title = schedule.title_de
+            break
+        default:
+            title = "オープン日"
+            if (schedule.title) title = schedule.title
+            break
     }
 
     let description = schedule.description
     if (schedule.description_en && locale === 'en') {
         description = schedule.description_en
     }
+    if (schedule.description_de && locale === 'de') {
+        description = schedule.description_de
+    }
+
     const { period, start, end } = formatStartToEnd(schedule.start_time, schedule.end_time)
     let categoryText = category as string
     const bgColor = category === 'event' ? 'bg-main' : 'bg-sub'
@@ -40,12 +56,41 @@ const Card = ({ schedule, category }: CardProps) => {
         }
     }
 
+    if (locale === 'en') {
+        switch (category) {
+            case 'open':
+                categoryText = 'Open Day'
+                break
+            case 'event':
+                categoryText = 'Event'
+                break
+        }
+    }
+
+    if (locale == 'de') {
+        switch (category) {
+            case 'open':
+                categoryText = 'Öffnungstag'
+                break
+            case 'event':
+                categoryText = 'Event'
+                break
+        }
+    }
+
+    // Date title
+    let dateTitle = locale === 'en' ? 'Date' : '日付'
+    if (locale === 'de') dateTitle = 'Datum'
+
+    let timeTitle = locale === 'en' ? 'Time' : '時間'
+    if (locale === 'de') timeTitle = 'Zeit'
+
     return (
         <div className={`keen-slider__slide ${styles.eventCard} ${cardColor}`}>
             <span className={`${styles.category_tag} ${bgColor}`}>{categoryText}</span>
             <h3>{title}</h3>
-            <p>{locale === 'en' ? 'Date' : '日付'} : {period}</p>
-            <time dateTime={schedule.start_time}>{locale === 'en' ? 'Time' : '時間'}: {start} ~ {end}</time>
+            <p>{dateTitle} : {period}</p>
+            <time dateTime={schedule.start_time}>{timeTitle}: {start} ~ {end}</time>
             {description && (
                 <p className={styles.card_description}
                     dangerouslySetInnerHTML={{ __html: nl2br(description) }}
