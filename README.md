@@ -1,5 +1,7 @@
 # 梅屋 web サイト
 
+新しくAstroを用いたversion 2は[こちら](https://github.com/taketo-eng/Umeya-website-v2) 
+
 ## 使用言語（Languages）
 
 TypeScript
